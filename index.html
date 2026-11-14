@@ -203,6 +203,24 @@
   .tl-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
   .tl-org { color: var(--muted); font-size: 0.95rem; }
 
+  /* ---------- Gallery ---------- */
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .shot { margin: 0; }
+  .shot img {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px;
+    border: 1px solid var(--line); box-shadow: var(--shadow); cursor: zoom-in;
+    transition: transform .25s;
+  }
+  .shot img:hover { transform: translateY(-3px); }
+  .shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
+  #lightbox {
+    position: fixed; inset: 0; z-index: 100; background: rgba(15, 8, 8, 0.88);
+    display: none; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out;
+  }
+  #lightbox.open { display: flex; }
+  #lightbox img { max-width: 100%; max-height: 100%; border-radius: 12px; }
+  @media (max-width: 860px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+
   /* ---------- CV download ---------- */
   .cv-card {
     display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
@@ -546,6 +564,33 @@
         <div class="date">Feb 2025</div>
       </li>
     </ul>
+    <h3 class="group">Conference moments</h3>
+    <div class="gallery">
+      <figure class="shot">
+        <img data-srcs="PSLLT%202024.JPG,PSLLT%202024.jpg,PSLLT%202024.jpeg,PSLLT%202024.JPEG" alt="PSLLT 2024 conference photo 1" loading="lazy">
+        <figcaption>PSLLT 2024 · Ames, IA</figcaption>
+      </figure>
+      <figure class="shot">
+        <img data-srcs="PSLLT%2020242.JPG,PSLLT%2020242.jpg,PSLLT%2020242.jpeg,PSLLT%2020242.JPEG" alt="PSLLT 2024 conference photo 2" loading="lazy">
+        <figcaption>PSLLT 2024 · Ames, IA</figcaption>
+      </figure>
+      <figure class="shot">
+        <img data-srcs="PSLLT%202025.JPG,PSLLT%202025.jpg,PSLLT%202025.jpeg,PSLLT%202025.JPEG" alt="PSLLT 2025 conference photo 1" loading="lazy">
+        <figcaption>PSLLT 2025 · Montréal, Canada</figcaption>
+      </figure>
+      <figure class="shot">
+        <img data-srcs="PSLLT%2020252.JPG,PSLLT%2020252.jpg,PSLLT%2020252.jpeg,PSLLT%2020252.JPEG" alt="PSLLT 2025 conference photo 2" loading="lazy">
+        <figcaption>PSLLT 2025 · Montréal, Canada</figcaption>
+      </figure>
+      <figure class="shot">
+        <img data-srcs="PSLLT%2020261.JPG,PSLLT%2020261.jpg,PSLLT%2020261.jpeg,PSLLT%2020261.JPEG" alt="PSLLT 2026 conference photo 1" loading="lazy">
+        <figcaption>PSLLT 2026 · Ames, IA</figcaption>
+      </figure>
+      <figure class="shot">
+        <img data-srcs="PSLLT%2020262.JPG,PSLLT%2020262.jpg,PSLLT%2020262.jpeg,PSLLT%2020262.JPEG" alt="PSLLT 2026 conference photo 2" loading="lazy">
+        <figcaption>PSLLT 2026 · Ames, IA</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -609,9 +654,10 @@
         <h3>KyungA (Kayla) Lee, Curriculum Vitae</h3>
         <p>PDF · Last updated November 2026</p>
         <div class="btns">
-          <a class="btn primary" href="K_Lee_CV_2026Nov_upload.pdf" download>Download CV (PDF)</a>
-          <a class="btn ghost" href="K_Lee_CV_2026Nov_upload.pdf" target="_blank" rel="noopener">View in browser</a>
+          <a class="btn primary" id="cv-download" href="K_Lee_CV_2026Nov_upload.pdf" download>Download CV (PDF)</a>
+          <a class="btn ghost" id="cv-view" href="K_Lee_CV_2026Nov_upload.pdf" target="_blank" rel="noopener">View in browser</a>
         </div>
+        <p id="cv-note" style="display:none; margin: 16px 0 0; font-size: 0.9rem;">The CV file could not be found right now. Please email me and I will send it.</p>
       </div>
     </div>
   </div>
@@ -639,6 +685,8 @@
 
 </main>
 
+<div id="lightbox" aria-hidden="true"><img alt=""></div>
+
 <footer>
   © <span id="year">2026</span> KyungA (Kayla) Lee · Last updated November 2026
 </footer>
@@ -654,10 +702,55 @@
       var i = 0;
       img.addEventListener("error", function () {
         i++;
-        if (i < list.length) { img.src = list[i]; } else { img.style.display = "none"; }
+        if (i < list.length) { img.src = list[i]; }
+        else {
+          img.style.display = "none";
+          var fig = img.closest("figure.shot");
+          if (fig) fig.style.display = "none";
+        }
       });
       img.src = list[0];
     });
+  })();
+
+
+  // ---------- Lightbox for gallery photos ----------
+  (function () {
+    var box = document.getElementById("lightbox");
+    var big = box.querySelector("img");
+    document.querySelectorAll(".shot img").forEach(function (img) {
+      img.addEventListener("click", function () { big.src = img.currentSrc || img.src; box.classList.add("open"); });
+    });
+    box.addEventListener("click", function () { box.classList.remove("open"); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") box.classList.remove("open"); });
+  })();
+
+  // ---------- CV: use whichever CV file name exists in the repository ----------
+  (function () {
+    var candidates = [
+      "K_Lee_CV_2026Nov_upload.pdf",
+      "K_Lee_CV_2026Nov_upload.PDF",
+      "K_Lee_CV_2026Nov_upload.docx"
+    ];
+    var dl = document.getElementById("cv-download");
+    var view = document.getElementById("cv-view");
+    var note = document.getElementById("cv-note");
+    if (!dl || !window.fetch || location.protocol === "file:") return;
+    var i = 0;
+    function tryNext() {
+      if (i >= candidates.length) {
+        if (note) note.style.display = "block";
+        return;
+      }
+      var name = candidates[i++];
+      fetch(name, { method: "HEAD" }).then(function (r) {
+        if (r.ok) {
+          dl.href = name; view.href = name;
+          if (/docx$/i.test(name)) { dl.textContent = "Download CV (Word)"; view.style.display = "none"; }
+        } else { tryNext(); }
+      }).catch(tryNext);
+    }
+    tryNext();
   })();
 
   // ---------- Dark mode ----------

@@ -203,6 +203,24 @@
   .tl-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
   .tl-org { color: var(--muted); font-size: 0.95rem; }
 
+  /* ---------- Featured project ---------- */
+  .feature {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center;
+    margin-top: 64px; padding: 36px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow);
+  }
+  .feature-title { font-family: var(--serif); font-size: 1.8rem; line-height: 1.2; margin-bottom: 8px; }
+  .feature-paper { color: var(--muted); font-size: 0.92rem; font-style: italic; margin-bottom: 14px; }
+  .feature-text > p { margin-bottom: 16px; }
+  .feature-note { color: var(--muted); font-size: 0.85rem; margin-top: 18px; margin-bottom: 0 !important; }
+  .feature-fig { margin: 0; }
+  .feature-fig img {
+    width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line);
+    box-shadow: var(--shadow); cursor: zoom-in;
+  }
+  .feature-fig figcaption { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 8px; }
+  @media (max-width: 860px) { .feature { grid-template-columns: 1fr; padding: 24px; gap: 24px; } }
+
   /* ---------- Gallery ---------- */
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .shot { margin: 0; }
@@ -344,6 +362,34 @@
         <h4>How people describe AI</h4>
         <p>What word choices reveal when adults and children explain conversational AI.</p>
       </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-text">
+        <span class="eyebrow">Featured project</span>
+        <h2 class="feature-title">Longitudinal Fricative Perception</h2>
+        <p class="feature-paper">L2 perception and perceptual confusions of English fricatives by Korean elementary EFL learners: A one year longitudinal study</p>
+        <p>
+          Sounds such as /θ/ and /ð/ are hard to hear for many learners of English. This project follows the same
+          elementary school learners across one year to ask which fricatives they confuse, how those confusions change over time,
+          and whether the functional load of a contrast, meaning how much it matters for telling words apart, helps explain them.
+        </p>
+        <div class="chips">
+          <span class="chip">Perception experiments</span>
+          <span class="chip">Multidimensional scaling</span>
+          <span class="chip">Functional load</span>
+          <span class="chip">Mixed effects models</span>
+        </div>
+        <div class="btns" style="margin-top:22px;">
+          <a class="btn primary" href="https://doi.org/10.13064/KSSS.2023.15.3.037" target="_blank" rel="noopener">Related paper (2023)</a>
+          <a class="btn ghost" href="#publications">All publications</a>
+        </div>
+        <p class="feature-note">Poster presented at the 17th PSLLT Conference, Ames, IA, September 2026.</p>
+      </div>
+      <figure class="feature-fig hide-if-missing">
+        <img class="zoomable" data-srcs="poster.JPG,poster.jpg,poster.jpeg,poster.JPEG,poster.png,poster.PNG,Poster.JPG,Poster.jpg,Poster.jpeg,Poster.JPEG,Poster.png,Poster.PNG,POSTER.JPG,POSTER.jpg,POSTER.jpeg,POSTER.JPEG,POSTER.png,POSTER.PNG" alt="Poster on longitudinal perception of English fricatives">
+        <figcaption>Click the poster to enlarge</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -705,7 +751,7 @@
         if (i < list.length) { img.src = list[i]; }
         else {
           img.style.display = "none";
-          var fig = img.closest("figure.shot");
+          var fig = img.closest("figure.shot, figure.hide-if-missing");
           if (fig) fig.style.display = "none";
         }
       });
@@ -718,7 +764,7 @@
   (function () {
     var box = document.getElementById("lightbox");
     var big = box.querySelector("img");
-    document.querySelectorAll(".shot img").forEach(function (img) {
+    document.querySelectorAll(".shot img, img.zoomable").forEach(function (img) {
       img.addEventListener("click", function () { big.src = img.currentSrc || img.src; box.classList.add("open"); });
     });
     box.addEventListener("click", function () { box.classList.remove("open"); });

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>KyungA (Kayla) Lee, Ph.D.</title>
 <meta name="description" content="Personal website of KyungA (Kayla) Lee, Ph.D. Speech rhythm, prosody, L2 speech perception and production, and human–AI communication.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,34 +10,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fbfaf7;
-    --bg-soft: #f2f0ea;
+    --bg: #fbf9f7;
+    --bg-soft: #f3eeea;
     --card: #ffffff;
-    --text: #1f2430;
-    --muted: #5d6475;
-    --line: #e4e1d8;
-    --accent: #1f6f78;
-    --accent-2: #c8643c;
-    --accent-soft: #dff0f0;
-    --shadow: 0 8px 30px rgba(31, 36, 48, 0.07);
+    --text: #231f20;
+    --muted: #6a6061;
+    --line: #e7dfdb;
+    --accent: #b31b1b;
+    --accent-btn: #b31b1b;
+    --accent-dark: #7d1414;
+    --accent-2: #8a6a2b;
+    --accent-soft: #f9e4e4;
+    --shadow: 0 8px 30px rgba(35, 20, 20, 0.07);
     --radius: 16px;
     --serif: "Fraunces", Georgia, "Times New Roman", serif;
     --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   }
   :root[data-theme="dark"] {
-    --bg: #12151c;
-    --bg-soft: #181c25;
-    --card: #1c212c;
-    --text: #e8eaf0;
-    --muted: #9aa2b4;
-    --line: #2b3140;
-    --accent: #5cc4cc;
-    --accent-2: #f09a73;
-    --accent-soft: #1d3a40;
-    --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    --bg: #161110;
+    --bg-soft: #1d1716;
+    --card: #211a19;
+    --text: #f1ebe9;
+    --muted: #b3a7a4;
+    --line: #3a2f2d;
+    --accent: #ef6b6b;
+    --accent-2: #d9b26a;
+    --accent-soft: #3a1c1c;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
   html { scroll-behavior: smooth; }
   body {
     font-family: var(--sans);
@@ -56,7 +60,7 @@
 
   /* ---------- Nav ---------- */
   header.nav {
-    position: sticky; top: 0; z-index: 50;
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
     background: color-mix(in srgb, var(--bg) 88%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -67,7 +71,7 @@
     min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
   }
   .brand { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; color: var(--text); white-space: nowrap; }
-  .brand span { color: var(--accent-2); }
+  .brand span { color: var(--accent); }
   nav { display: flex; align-items: center; gap: 6px; overflow-x: auto; scrollbar-width: none; }
   nav::-webkit-scrollbar { display: none; }
   nav a.link {
@@ -107,7 +111,7 @@
     font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.6rem);
     line-height: 1.1; font-weight: 700; margin-bottom: 10px;
   }
-  .hero h1 em { font-style: normal; color: var(--accent-2); }
+  .hero h1 em { font-style: normal; color: var(--accent); }
   .role { font-size: 1.05rem; color: var(--muted); margin-bottom: 16px; }
   .role strong { color: var(--text); font-weight: 600; }
   .lead { font-size: 1.05rem; max-width: 52ch; margin-bottom: 26px; }
@@ -116,7 +120,7 @@
     display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px;
     font-weight: 600; font-size: 0.95rem; border: 1px solid transparent; transition: all .2s;
   }
-  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.primary { background: var(--accent-btn); color: #fff; }
   .btn.primary:hover { transform: translateY(-2px); box-shadow: var(--shadow); text-decoration: none; }
   .btn.ghost { border-color: var(--line); color: var(--text); background: var(--card); }
   .btn.ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
@@ -124,12 +128,29 @@
   /* ---------- Photos (with graceful fallback) ---------- */
   .photo {
     position: relative; overflow: hidden; border-radius: 24px; box-shadow: var(--shadow);
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    background: linear-gradient(135deg, var(--accent-dark), #b31b1b);
     aspect-ratio: 4 / 5; display: grid; place-items: center;
     color: #fff; font-family: var(--serif); font-size: 3.4rem; font-weight: 700;
   }
-  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .photo.square { aspect-ratio: 1 / 1; }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+  .photo.square { font-size: 1.6rem; letter-spacing: 0.2em; aspect-ratio: 1 / 1; }
+  .hero-photo { position: relative; margin-right: 14px; }
+  .hero-photo::before {
+    content: ""; position: absolute; inset: 14px -14px -14px 14px;
+    border: 2px solid var(--accent); border-radius: 26px; z-index: 0;
+  }
+  .hero-photo .photo { position: relative; z-index: 1; border-radius: 22px; }
+  .hero-photo figcaption { position: relative; z-index: 1; margin-top: 26px; }
+  .art {
+    background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px; margin-bottom: 16px;
+  }
+  .art svg { width: 100%; height: auto; display: block; }
+  .ink { stroke: var(--accent); fill: none; }
+  .ink2 { stroke: var(--muted); fill: none; }
+  .fillA { fill: var(--accent); }
+  .fillD { fill: var(--accent-dark); }
+  .fillM { fill: var(--muted); }
   .photo-wrap figcaption { text-align: center; color: var(--muted); font-size: 0.88rem; margin-top: 10px; }
 
   /* ---------- Cards / chips ---------- */
@@ -141,7 +162,7 @@
   }
   .card h4 { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 6px; }
   .card p { color: var(--muted); font-size: 0.95rem; }
-  .icon { font-size: 1.5rem; margin-bottom: 8px; }
+  
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip {
     background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px;
@@ -177,14 +198,25 @@
     content: ""; position: absolute; left: -37px; top: 6px; width: 14px; height: 14px; border-radius: 50%;
     background: var(--bg); border: 3px solid var(--accent);
   }
-  .tl-item.now::before { background: var(--accent-2); border-color: var(--accent-2); }
+  .tl-item.now::before { background: var(--accent); border-color: var(--accent); }
   .tl-date { font-size: 0.85rem; font-weight: 600; color: var(--accent); }
   .tl-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
   .tl-org { color: var(--muted); font-size: 0.95rem; }
 
+  /* ---------- CV download ---------- */
+  .cv-card {
+    display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+    background: var(--card); border: 1px solid var(--line); border-radius: 24px;
+    padding: 36px; box-shadow: var(--shadow); max-width: 720px;
+  }
+  .cv-icon { color: var(--accent); flex: none; }
+  .cv-body { flex: 1; min-width: 240px; }
+  .cv-body h3 { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 4px; }
+  .cv-body p { color: var(--muted); margin-bottom: 20px; }
+
   /* ---------- Contact ---------- */
   .contact-box {
-    background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 60%, var(--accent-2)));
+    background: linear-gradient(135deg, #7d1414, #b31b1b);
     color: #fff; border-radius: 24px; padding: 48px 32px; text-align: center;
   }
   .contact-box h3 { font-family: var(--serif); font-size: 1.7rem; margin-bottom: 8px; }
@@ -195,6 +227,14 @@
     font-size: 0.92rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.28);
   }
   .contact-links a:hover { background: rgba(255,255,255,0.28); text-decoration: none; }
+  .contact-links a.brand-li { background: #0a66c2; border-color: #0a66c2; color: #fff; }
+  .contact-links a.brand-rg { background: #00ccbb; border-color: #00ccbb; color: #fff; }
+  .contact-links a.brand-orcid { background: #a6ce39; border-color: #a6ce39; color: #1b2a00; }
+  .contact-links a.brand-gh { background: #24292f; border-color: #24292f; color: #fff; }
+  .contact-links a.brand-li:hover { background: #0b5aa8; }
+  .contact-links a.brand-rg:hover { background: #00b3a4; }
+  .contact-links a.brand-orcid:hover { background: #95bb2e; }
+  .contact-links a.brand-gh:hover { background: #3a4048; }
   .address { text-align: center; color: var(--muted); font-size: 0.92rem; margin-top: 22px; }
 
   footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 40px 24px 48px; }
@@ -206,7 +246,7 @@
     .items li { grid-template-columns: 1fr; }
     .items .date { text-align: left; }
     .nav-inner { flex-direction: column; align-items: stretch; padding-top: 10px; padding-bottom: 10px; gap: 6px; }
-    .hero-photo { max-width: 260px; }
+    .hero-photo { max-width: 280px; }
     .about-photo { max-width: 260px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -230,7 +270,7 @@
       <a class="link" href="#teaching">Teaching</a>
       <a class="link" href="#cv">CV</a>
       <a class="link" href="#contact">Contact</a>
-      <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
+      <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
     </nav>
   </div>
 </header>
@@ -252,7 +292,7 @@
           </p>
           <p class="lead">
             I study speech rhythm and prosody, how people learn to hear and speak a second language,
-            and how people talk to and about AI voices.
+            and how people describe and talk about AI.
           </p>
           <div class="btns">
             <a class="btn primary" href="#publications">Publications</a>
@@ -264,7 +304,7 @@
         <figure class="photo-wrap hero-photo">
           <div class="photo">
             KL
-            <img src="photo.jpg" alt="Portrait of Kayla Lee" onerror="this.style.display='none'">
+            <img data-srcs="KALEE.JPG,KALEE.jpg,kalee.jpg,KALEE.jpeg,photo.jpg" alt="Portrait of Kayla Lee">
           </div>
         </figure>
       </div>
@@ -272,19 +312,19 @@
 
     <div class="grid-3 home-cards">
       <div class="card">
-        <div class="icon">🥁</div>
+        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Amplitude envelope of speech with alternating strong and weak syllables"><line class="ink2" x1="8" y1="65" x2="312" y2="65" stroke-width="1" stroke-dasharray="3 4"/><line class="ink" x1="14.0" y1="55.0" x2="14.0" y2="75.0" stroke-width="4" stroke-linecap="round" opacity="0.45"/><line class="ink" x1="24.6" y1="49.0" x2="24.6" y2="81.0" stroke-width="4" stroke-linecap="round" opacity="0.51"/><line class="ink" x1="35.2" y1="37.0" x2="35.2" y2="93.0" stroke-width="4" stroke-linecap="round" opacity="0.63"/><line class="ink" x1="45.8" y1="13.0" x2="45.8" y2="117.0" stroke-width="4" stroke-linecap="round" opacity="0.88"/><line class="ink" x1="56.4" y1="31.0" x2="56.4" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="67.0" y1="51.0" x2="67.0" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="77.6" y1="56.0" x2="77.6" y2="74.0" stroke-width="4" stroke-linecap="round" opacity="0.44"/><line class="ink" x1="88.2" y1="51.0" x2="88.2" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="98.8" y1="41.0" x2="98.8" y2="89.0" stroke-width="4" stroke-linecap="round" opacity="0.59"/><line class="ink" x1="109.4" y1="19.0" x2="109.4" y2="111.0" stroke-width="4" stroke-linecap="round" opacity="0.82"/><line class="ink" x1="120.0" y1="1.0" x2="120.0" y2="129.0" stroke-width="4" stroke-linecap="round" opacity="1.00"/><line class="ink" x1="130.6" y1="25.0" x2="130.6" y2="105.0" stroke-width="4" stroke-linecap="round" opacity="0.76"/><line class="ink" x1="141.2" y1="49.0" x2="141.2" y2="81.0" stroke-width="4" stroke-linecap="round" opacity="0.51"/><line class="ink" x1="151.8" y1="56.0" x2="151.8" y2="74.0" stroke-width="4" stroke-linecap="round" opacity="0.44"/><line class="ink" x1="162.4" y1="53.0" x2="162.4" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="173.0" y1="43.0" x2="173.0" y2="87.0" stroke-width="4" stroke-linecap="round" opacity="0.57"/><line class="ink" x1="183.6" y1="25.0" x2="183.6" y2="105.0" stroke-width="4" stroke-linecap="round" opacity="0.76"/><line class="ink" x1="194.2" y1="7.0" x2="194.2" y2="123.0" stroke-width="4" stroke-linecap="round" opacity="0.94"/><line class="ink" x1="204.8" y1="31.0" x2="204.8" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="215.4" y1="51.0" x2="215.4" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="226.0" y1="57.0" x2="226.0" y2="73.0" stroke-width="4" stroke-linecap="round" opacity="0.43"/><line class="ink" x1="236.6" y1="53.0" x2="236.6" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="247.2" y1="45.0" x2="247.2" y2="85.0" stroke-width="4" stroke-linecap="round" opacity="0.55"/><line class="ink" x1="257.8" y1="31.0" x2="257.8" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="268.4" y1="15.0" x2="268.4" y2="115.0" stroke-width="4" stroke-linecap="round" opacity="0.86"/><line class="ink" x1="279.0" y1="37.0" x2="279.0" y2="93.0" stroke-width="4" stroke-linecap="round" opacity="0.63"/><line class="ink" x1="289.6" y1="53.0" x2="289.6" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="300.2" y1="57.0" x2="300.2" y2="73.0" stroke-width="4" stroke-linecap="round" opacity="0.43"/><path d="M14.0,51.0 L24.6,45.0 L35.2,33.0 L45.8,9.0 L56.4,27.0 L67.0,47.0 L77.6,52.0 L88.2,47.0 L98.8,37.0 L109.4,15.0 L120.0,-3.0 L130.6,21.0 L141.2,45.0 L151.8,52.0 L162.4,49.0 L173.0,39.0 L183.6,21.0 L194.2,3.0 L204.8,27.0 L215.4,47.0 L226.0,53.0 L236.6,49.0 L247.2,41.0 L257.8,27.0 L268.4,11.0 L279.0,33.0 L289.6,49.0 L300.2,53.0" class="ink2" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
         <h4>Rhythm and prosody</h4>
         <p>Teaching and measuring English rhythm for syllable timed learners.</p>
       </div>
       <div class="card">
-        <div class="icon">👂</div>
+        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Two overlapping vowel categories in formant space"><line class="ink2" x1="26" y1="10" x2="26" y2="116" stroke-width="1.2"/><line class="ink2" x1="26" y1="116" x2="308" y2="116" stroke-width="1.2"/><text x="30" y="20" font-size="9" class="fillM" font-family="Inter,sans-serif">F1</text><text x="292" y="110" font-size="9" class="fillM" font-family="Inter,sans-serif">F2</text><ellipse cx="130" cy="62" rx="62" ry="32" transform="rotate(-18 130 62)" class="fillA" opacity="0.18"/><ellipse cx="185" cy="72" rx="58" ry="30" transform="rotate(-18 185 72)" class="fillD" opacity="0.22"/><circle cx="125.5" cy="71.3" r="2.6" class="fillA"/><circle cx="123.0" cy="59.7" r="2.6" class="fillA"/><circle cx="104.0" cy="67.0" r="2.6" class="fillA"/><circle cx="161.1" cy="58.5" r="2.6" class="fillA"/><circle cx="158.8" cy="56.6" r="2.6" class="fillA"/><circle cx="140.9" cy="61.3" r="2.6" class="fillA"/><circle cx="95.9" cy="84.0" r="2.6" class="fillA"/><circle cx="145.9" cy="64.7" r="2.6" class="fillA"/><circle cx="92.8" cy="54.9" r="2.6" class="fillA"/><circle cx="104.0" cy="63.0" r="2.6" class="fillA"/><circle cx="137.2" cy="59.0" r="2.6" class="fillA"/><circle cx="141.2" cy="48.3" r="2.6" class="fillA"/><circle cx="139.8" cy="64.8" r="2.6" class="fillA"/><circle cx="121.6" cy="87.2" r="2.6" class="fillA"/><circle cx="149.5" cy="73.6" r="2.6" class="fillA"/><circle cx="109.9" cy="56.9" r="2.6" class="fillA"/><circle cx="176.0" cy="73.3" r="2.6" class="fillD"/><circle cx="203.1" cy="70.1" r="2.6" class="fillD"/><circle cx="168.7" cy="62.4" r="2.6" class="fillD"/><circle cx="176.9" cy="92.8" r="2.6" class="fillD"/><circle cx="164.3" cy="82.5" r="2.6" class="fillD"/><circle cx="189.3" cy="49.5" r="2.6" class="fillD"/><circle cx="191.9" cy="89.3" r="2.6" class="fillD"/><circle cx="141.0" cy="82.1" r="2.6" class="fillD"/><circle cx="178.4" cy="61.3" r="2.6" class="fillD"/><circle cx="197.7" cy="67.0" r="2.6" class="fillD"/><circle cx="153.6" cy="93.4" r="2.6" class="fillD"/><circle cx="206.9" cy="79.5" r="2.6" class="fillD"/><circle cx="222.3" cy="65.3" r="2.6" class="fillD"/><circle cx="182.4" cy="53.4" r="2.6" class="fillD"/><circle cx="198.9" cy="58.0" r="2.6" class="fillD"/><circle cx="167.9" cy="58.7" r="2.6" class="fillD"/></svg></div>
         <h4>Child L2 speech</h4>
         <p>Phonetic training and speech technology for young EFL learners.</p>
       </div>
       <div class="card">
-        <div class="icon">🤖</div>
-        <h4>Human–AI communication</h4>
-        <p>How accent and voice shape the way people relate to AI.</p>
+        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Two speech bubbles with word frequency bars"><path d="M16 14 h132 a10 10 0 0 1 10 10 v54 a10 10 0 0 1 -10 10 h-86 l-18 16 v-16 h-28 a10 10 0 0 1 -10 -10 v-54 a10 10 0 0 1 10 -10z" class="ink" stroke-width="2"/><rect x="30" y="26" width="104" height="8" rx="4" class="fillA" opacity="1.00"/><rect x="30" y="41" width="76" height="8" rx="4" class="fillA" opacity="0.83"/><rect x="30" y="56" width="92" height="8" rx="4" class="fillA" opacity="0.66"/><rect x="30" y="71" width="52" height="8" rx="4" class="fillA" opacity="0.49"/><path d="M172 40 h122 a10 10 0 0 1 10 10 v50 a10 10 0 0 1 -10 10 h-18 v16 l-18 -16 h-86 a10 10 0 0 1 -10 -10 v-50 a10 10 0 0 1 10 -10z" class="fillD" opacity="0.14"/><path d="M172 40 h122 a10 10 0 0 1 10 10 v50 a10 10 0 0 1 -10 10 h-18 v16 l-18 -16 h-86 a10 10 0 0 1 -10 -10 v-50 a10 10 0 0 1 10 -10z" class="ink2" stroke-width="2"/><rect x="186" y="52" width="70" height="8" rx="4" class="fillD" opacity="1.00"/><rect x="186" y="66" width="100" height="8" rx="4" class="fillD" opacity="0.85"/><rect x="186" y="80" width="48" height="8" rx="4" class="fillD" opacity="0.70"/><rect x="186" y="94" width="82" height="8" rx="4" class="fillD" opacity="0.55"/></svg></div>
+        <h4>How people describe AI</h4>
+        <p>What word choices reveal when adults and children explain conversational AI.</p>
       </div>
     </div>
   </div>
@@ -311,10 +351,10 @@
       <!-- PHOTO 2 (cat): upload your cat photo to the repository as cat.jpg -->
       <figure class="photo-wrap about-photo">
         <div class="photo square">
-          🐱
-          <img src="cat.jpg" alt="Kayla’s cat" onerror="this.style.display='none'">
+          CAT
+          <img data-srcs="CAT.JPG,CAT.jpg,cat.jpg,cat.jpeg,CAT.jpeg" alt="Kayla’s cat">
         </div>
-        <figcaption>My favorite research assistant 🐾</figcaption>
+        <figcaption>My favorite research assistant</figcaption>
       </figure>
     </div>
   </div>
@@ -327,24 +367,24 @@
     <p class="page-sub">Four threads that connect my work.</p>
     <div class="grid-2">
       <div class="card">
-        <div class="icon">🥁</div>
+        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Amplitude envelope of speech with alternating strong and weak syllables"><line class="ink2" x1="8" y1="65" x2="312" y2="65" stroke-width="1" stroke-dasharray="3 4"/><line class="ink" x1="14.0" y1="55.0" x2="14.0" y2="75.0" stroke-width="4" stroke-linecap="round" opacity="0.45"/><line class="ink" x1="24.6" y1="49.0" x2="24.6" y2="81.0" stroke-width="4" stroke-linecap="round" opacity="0.51"/><line class="ink" x1="35.2" y1="37.0" x2="35.2" y2="93.0" stroke-width="4" stroke-linecap="round" opacity="0.63"/><line class="ink" x1="45.8" y1="13.0" x2="45.8" y2="117.0" stroke-width="4" stroke-linecap="round" opacity="0.88"/><line class="ink" x1="56.4" y1="31.0" x2="56.4" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="67.0" y1="51.0" x2="67.0" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="77.6" y1="56.0" x2="77.6" y2="74.0" stroke-width="4" stroke-linecap="round" opacity="0.44"/><line class="ink" x1="88.2" y1="51.0" x2="88.2" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="98.8" y1="41.0" x2="98.8" y2="89.0" stroke-width="4" stroke-linecap="round" opacity="0.59"/><line class="ink" x1="109.4" y1="19.0" x2="109.4" y2="111.0" stroke-width="4" stroke-linecap="round" opacity="0.82"/><line class="ink" x1="120.0" y1="1.0" x2="120.0" y2="129.0" stroke-width="4" stroke-linecap="round" opacity="1.00"/><line class="ink" x1="130.6" y1="25.0" x2="130.6" y2="105.0" stroke-width="4" stroke-linecap="round" opacity="0.76"/><line class="ink" x1="141.2" y1="49.0" x2="141.2" y2="81.0" stroke-width="4" stroke-linecap="round" opacity="0.51"/><line class="ink" x1="151.8" y1="56.0" x2="151.8" y2="74.0" stroke-width="4" stroke-linecap="round" opacity="0.44"/><line class="ink" x1="162.4" y1="53.0" x2="162.4" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="173.0" y1="43.0" x2="173.0" y2="87.0" stroke-width="4" stroke-linecap="round" opacity="0.57"/><line class="ink" x1="183.6" y1="25.0" x2="183.6" y2="105.0" stroke-width="4" stroke-linecap="round" opacity="0.76"/><line class="ink" x1="194.2" y1="7.0" x2="194.2" y2="123.0" stroke-width="4" stroke-linecap="round" opacity="0.94"/><line class="ink" x1="204.8" y1="31.0" x2="204.8" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="215.4" y1="51.0" x2="215.4" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="226.0" y1="57.0" x2="226.0" y2="73.0" stroke-width="4" stroke-linecap="round" opacity="0.43"/><line class="ink" x1="236.6" y1="53.0" x2="236.6" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="247.2" y1="45.0" x2="247.2" y2="85.0" stroke-width="4" stroke-linecap="round" opacity="0.55"/><line class="ink" x1="257.8" y1="31.0" x2="257.8" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="268.4" y1="15.0" x2="268.4" y2="115.0" stroke-width="4" stroke-linecap="round" opacity="0.86"/><line class="ink" x1="279.0" y1="37.0" x2="279.0" y2="93.0" stroke-width="4" stroke-linecap="round" opacity="0.63"/><line class="ink" x1="289.6" y1="53.0" x2="289.6" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="300.2" y1="57.0" x2="300.2" y2="73.0" stroke-width="4" stroke-linecap="round" opacity="0.43"/><path d="M14.0,51.0 L24.6,45.0 L35.2,33.0 L45.8,9.0 L56.4,27.0 L67.0,47.0 L77.6,52.0 L88.2,47.0 L98.8,37.0 L109.4,15.0 L120.0,-3.0 L130.6,21.0 L141.2,45.0 L151.8,52.0 L162.4,49.0 L173.0,39.0 L183.6,21.0 L194.2,3.0 L204.8,27.0 L215.4,47.0 L226.0,53.0 L236.6,49.0 L247.2,41.0 L257.8,27.0 L268.4,11.0 L279.0,33.0 L289.6,49.0 L300.2,53.0" class="ink2" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
         <h4>Speech rhythm and prosody</h4>
         <p>How syllable timed learners acquire stress timed English rhythm, and how to measure and train it.</p>
       </div>
       <div class="card">
-        <div class="icon">👂</div>
+        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Two overlapping vowel categories in formant space"><line class="ink2" x1="26" y1="10" x2="26" y2="116" stroke-width="1.2"/><line class="ink2" x1="26" y1="116" x2="308" y2="116" stroke-width="1.2"/><text x="30" y="20" font-size="9" class="fillM" font-family="Inter,sans-serif">F1</text><text x="292" y="110" font-size="9" class="fillM" font-family="Inter,sans-serif">F2</text><ellipse cx="130" cy="62" rx="62" ry="32" transform="rotate(-18 130 62)" class="fillA" opacity="0.18"/><ellipse cx="185" cy="72" rx="58" ry="30" transform="rotate(-18 185 72)" class="fillD" opacity="0.22"/><circle cx="125.5" cy="71.3" r="2.6" class="fillA"/><circle cx="123.0" cy="59.7" r="2.6" class="fillA"/><circle cx="104.0" cy="67.0" r="2.6" class="fillA"/><circle cx="161.1" cy="58.5" r="2.6" class="fillA"/><circle cx="158.8" cy="56.6" r="2.6" class="fillA"/><circle cx="140.9" cy="61.3" r="2.6" class="fillA"/><circle cx="95.9" cy="84.0" r="2.6" class="fillA"/><circle cx="145.9" cy="64.7" r="2.6" class="fillA"/><circle cx="92.8" cy="54.9" r="2.6" class="fillA"/><circle cx="104.0" cy="63.0" r="2.6" class="fillA"/><circle cx="137.2" cy="59.0" r="2.6" class="fillA"/><circle cx="141.2" cy="48.3" r="2.6" class="fillA"/><circle cx="139.8" cy="64.8" r="2.6" class="fillA"/><circle cx="121.6" cy="87.2" r="2.6" class="fillA"/><circle cx="149.5" cy="73.6" r="2.6" class="fillA"/><circle cx="109.9" cy="56.9" r="2.6" class="fillA"/><circle cx="176.0" cy="73.3" r="2.6" class="fillD"/><circle cx="203.1" cy="70.1" r="2.6" class="fillD"/><circle cx="168.7" cy="62.4" r="2.6" class="fillD"/><circle cx="176.9" cy="92.8" r="2.6" class="fillD"/><circle cx="164.3" cy="82.5" r="2.6" class="fillD"/><circle cx="189.3" cy="49.5" r="2.6" class="fillD"/><circle cx="191.9" cy="89.3" r="2.6" class="fillD"/><circle cx="141.0" cy="82.1" r="2.6" class="fillD"/><circle cx="178.4" cy="61.3" r="2.6" class="fillD"/><circle cx="197.7" cy="67.0" r="2.6" class="fillD"/><circle cx="153.6" cy="93.4" r="2.6" class="fillD"/><circle cx="206.9" cy="79.5" r="2.6" class="fillD"/><circle cx="222.3" cy="65.3" r="2.6" class="fillD"/><circle cx="182.4" cy="53.4" r="2.6" class="fillD"/><circle cx="198.9" cy="58.0" r="2.6" class="fillD"/><circle cx="167.9" cy="58.7" r="2.6" class="fillD"/></svg></div>
         <h4>L2 and child speech</h4>
         <p>Perceptual confusions, high variability phonetic training, and working memory in young learners.</p>
       </div>
       <div class="card">
-        <div class="icon">📱</div>
+        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Speech app on a phone with a waveform"><rect x="118" y="8" width="84" height="114" rx="14" class="ink" stroke-width="2.4"/><line class="ink2" x1="150" y1="16" x2="170" y2="16" stroke-width="3" stroke-linecap="round"/><line class="ink" x1="128.0" y1="54.0" x2="128.0" y2="62.0" stroke-width="3.4" stroke-linecap="round"/><line class="ink" x1="135.4" y1="50.0" x2="135.4" y2="66.0" stroke-width="3.4" stroke-linecap="round"/><line class="ink" x1="142.8" y1="44.0" x2="142.8" y2="72.0" stroke-width="3.4" stroke-linecap="round"/><line class="ink" x1="150.2" y1="49.0" x2="150.2" y2="67.0" stroke-width="3.4" stroke-linecap="round"/><line class="ink" x1="157.6" y1="41.0" x2="157.6" y2="75.0" stroke-width="3.4" stroke-linecap="round"/><line class="ink" x1="165.0" y1="47.0" x2="165.0" y2="69.0" stroke-width="3.4" stroke-linecap="round"/><line class="ink" x1="172.4" y1="52.0" x2="172.4" y2="64.0" stroke-width="3.4" stroke-linecap="round"/><line class="ink" x1="179.8" y1="45.0" x2="179.8" y2="71.0" stroke-width="3.4" stroke-linecap="round"/><line class="ink" x1="187.2" y1="51.0" x2="187.2" y2="65.0" stroke-width="3.4" stroke-linecap="round"/><line class="ink" x1="194.6" y1="54.0" x2="194.6" y2="62.0" stroke-width="3.4" stroke-linecap="round"/><circle cx="160" cy="98" r="11" class="fillA"/><rect x="156" y="91" width="8" height="12" rx="4" fill="#fff"/><line class="ink2" x1="36" y1="40" x2="96" y2="40" stroke-width="5" stroke-linecap="round" opacity="0.55"/><line class="ink2" x1="36" y1="56" x2="84" y2="56" stroke-width="5" stroke-linecap="round" opacity="0.55"/><line class="ink2" x1="36" y1="72" x2="92" y2="72" stroke-width="5" stroke-linecap="round" opacity="0.55"/><line class="ink2" x1="226" y1="40" x2="284" y2="40" stroke-width="5" stroke-linecap="round" opacity="0.55"/><line class="ink2" x1="226" y1="56" x2="274" y2="56" stroke-width="5" stroke-linecap="round" opacity="0.55"/><line class="ink2" x1="226" y1="72" x2="282" y2="72" stroke-width="5" stroke-linecap="round" opacity="0.55"/></svg></div>
         <h4>Technology enhanced TESOL</h4>
         <p>Speech recognition, pronunciation apps, and AI assisted language learning in classrooms.</p>
       </div>
       <div class="card">
-        <div class="icon">🤖</div>
-        <h4>AI voices and ideology</h4>
-        <p>Accent, nativeness, and voice in human–AI communication.</p>
+        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Two speech bubbles with word frequency bars"><path d="M16 14 h132 a10 10 0 0 1 10 10 v54 a10 10 0 0 1 -10 10 h-86 l-18 16 v-16 h-28 a10 10 0 0 1 -10 -10 v-54 a10 10 0 0 1 10 -10z" class="ink" stroke-width="2"/><rect x="30" y="26" width="104" height="8" rx="4" class="fillA" opacity="1.00"/><rect x="30" y="41" width="76" height="8" rx="4" class="fillA" opacity="0.83"/><rect x="30" y="56" width="92" height="8" rx="4" class="fillA" opacity="0.66"/><rect x="30" y="71" width="52" height="8" rx="4" class="fillA" opacity="0.49"/><path d="M172 40 h122 a10 10 0 0 1 10 10 v50 a10 10 0 0 1 -10 10 h-18 v16 l-18 -16 h-86 a10 10 0 0 1 -10 -10 v-50 a10 10 0 0 1 10 -10z" class="fillD" opacity="0.14"/><path d="M172 40 h122 a10 10 0 0 1 10 10 v50 a10 10 0 0 1 -10 10 h-18 v16 l-18 -16 h-86 a10 10 0 0 1 -10 -10 v-50 a10 10 0 0 1 10 -10z" class="ink2" stroke-width="2"/><rect x="186" y="52" width="70" height="8" rx="4" class="fillD" opacity="1.00"/><rect x="186" y="66" width="100" height="8" rx="4" class="fillD" opacity="0.85"/><rect x="186" y="80" width="48" height="8" rx="4" class="fillD" opacity="0.70"/><rect x="186" y="94" width="82" height="8" rx="4" class="fillD" opacity="0.55"/></svg></div>
+        <h4>How people talk about AI</h4>
+        <p>How adults and children describe conversational AI, and how accent, nativeness, and voice shape those descriptions.</p>
       </div>
     </div>
     <h3 class="group">Dissertation (Seoul National University, 2025)</h3>
@@ -358,65 +398,94 @@
 <section class="view" id="view-publications">
   <div class="container">
     <h2 class="page-title">Publications</h2>
-    <p class="page-sub">Selected work. Full list available on request.</p>
+    <p class="page-sub">Peer reviewed articles, manuscripts under review, and work in preparation.</p>
 
-    <h3 class="group">Journal articles and proceedings</h3>
+    <h3 class="group">Peer reviewed journal articles</h3>
     <ul class="items">
       <li>
         <div>
-          <div class="t"><span class="me">Lee, K.</span> &amp; Ahn, H. Blended phonetic training with HVPT features for EFL children.</div>
-          <div class="m"><em>Languages</em>, 10(6), 122 · <a href="https://doi.org/10.3390/languages10060122" target="_blank" rel="noopener">DOI</a> <span class="tag">Scopus</span></div>
+          <div class="t"><span class="me">Lee, K.</span>, &amp; Ahn, H. Blended phonetic training with HVPT features for EFL children: Effects on L2 perception and listening comprehension.</div>
+          <div class="m"><em>Languages, 10</em>(6), 122. <a href="https://doi.org/10.3390/languages10060122" target="_blank" rel="noopener">doi.org/10.3390/languages10060122</a> <span class="tag">Scopus</span></div>
         </div>
         <div class="date">2025</div>
       </li>
       <li>
         <div>
-          <div class="t"><span class="me">Lee, K.</span> &amp; Ahn, H. Effects of perception focused high variability phonetic training in elementary EFL learners.</div>
-          <div class="m"><em>Proceedings of PSLLT 15</em> · <a href="https://doi.org/10.31274/psllt.18437" target="_blank" rel="noopener">DOI</a></div>
+          <div class="t"><span class="me">Lee, K.</span>, &amp; Ahn, H. Effects of perception focused high variability phonetic training: Impacts on perception, production, and phonological working memory in elementary EFL learners.</div>
+          <div class="m">In J. M. Levis, M. Duris, S. Sonsaat‑Hegelheimer, &amp; I. Na (Eds.), <em>Proceedings of the 15th Pronunciation in Second Language Learning and Teaching Conference</em> (pp. 1–15). Iowa State University. <a href="https://doi.org/10.31274/psllt.18437" target="_blank" rel="noopener">doi.org/10.31274/psllt.18437</a></div>
         </div>
         <div class="date">2025</div>
       </li>
       <li>
         <div>
-          <div class="t"><span class="me">Lee, K.</span> EFL learners’ perceptual confusions and phonemic awareness of English fricatives.</div>
-          <div class="m"><em>Phonetics and Speech Sciences</em>, 15(3) · <a href="https://doi.org/10.13064/KSSS.2023.15.3.037" target="_blank" rel="noopener">DOI</a></div>
+          <div class="t"><span class="me">Lee, K.</span> An analysis of EFL learners’ perceptual confusions and phonemic awareness of English fricatives.</div>
+          <div class="m"><em>Phonetics and Speech Sciences, 15</em>(3), 37–44. <a href="https://doi.org/10.13064/KSSS.2023.15.3.037" target="_blank" rel="noopener">doi.org/10.13064/KSSS.2023.15.3.037</a></div>
         </div>
         <div class="date">2023</div>
       </li>
       <li>
         <div>
-          <div class="t">Choe, S., <span class="me">Lee, K.</span>, &amp; So, Y. Phonemic awareness instruction and L2 listening comprehension: A meta analysis.</div>
-          <div class="m"><em>Journal of Asia TEFL</em>, 17(4) · <a href="https://doi.org/10.18823/asiatefl.2020.17.4.9.1294" target="_blank" rel="noopener">DOI</a> <span class="tag">Scopus</span></div>
+          <div class="t">Ko, M., &amp; <span class="me">Lee, K.</span> Medical English program evaluation and improvement.</div>
+          <div class="m"><em>English Language Teaching, 35</em>(3), 129–159.</div>
+        </div>
+        <div class="date">2023</div>
+      </li>
+      <li>
+        <div>
+          <div class="t">Ko, M., &amp; <span class="me">Lee, K.</span> University English speaking program evaluation and improvement.</div>
+          <div class="m"><em>Korean Journal of Applied Linguistics, 39</em>(2), 81–112.</div>
+        </div>
+        <div class="date">2023</div>
+      </li>
+      <li>
+        <div>
+          <div class="t">Choe, S., <span class="me">Lee, K.</span> (co first author), &amp; So, Y. The effects of phonemic awareness instructions on L2 listening comprehension: A meta analysis.</div>
+          <div class="m"><em>Journal of Asia TEFL, 17</em>(4), 1294–1309. <a href="https://doi.org/10.18823/asiatefl.2020.17.4.9.1294" target="_blank" rel="noopener">doi.org/10.18823/asiatefl.2020.17.4.9.1294</a> <span class="tag">Scopus</span></div>
         </div>
         <div class="date">2020</div>
       </li>
     </ul>
 
-    <h3 class="group">Under review</h3>
+    <h3 class="group">Manuscripts under review</h3>
     <ul class="items">
       <li>
         <div>
-          <div class="t"><span class="me">Lee, K.</span> &amp; Ahn, H. Mobile assisted vowel training for Korean EFL children’s perception and production.</div>
-          <div class="m"><em>Language Learning &amp; Technology</em></div>
-        </div>
-        <div class="date">2026</div>
-      </li>
-      <li>
-        <div>
-          <div class="t">Tang, Q., Wang, J., &amp; <span class="me">Lee, K.</span> Relational turbulence with a layered partner: Human–AI companionship.</div>
-          <div class="m">Extended abstract, ICA 2027</div>
+          <div class="t">Tang, Q., Wang, J., &amp; <span class="me">Lee, K.</span> <em>Relational turbulence with a layered partner: Interference, uncertainty, and instability in human–AI companionship.</em></div>
+          <div class="m">Extended abstract submitted to the International Communication Association 2027 Conference.</div>
         </div>
         <div class="date">2027</div>
       </li>
+      <li>
+        <div>
+          <div class="t"><span class="me">Lee, K.</span>, &amp; Ahn, H. <em>Mobile assisted vowel training for Korean EFL children’s perception and production.</em></div>
+          <div class="m">Submitted to <em>Language Learning &amp; Technology</em>.</div>
+        </div>
+        <div class="date">2026</div>
+      </li>
     </ul>
 
-    <h3 class="group">In preparation</h3>
+    <h3 class="group">Manuscripts in preparation</h3>
     <ul class="items">
-      <li><div class="t">Text to speech accent mismatch and L2 learners’ intelligibility and comprehensibility</div><div class="date">2026</div></li>
-      <li><div class="t">How adults and children talk about conversational AI: YouTube discourse analysis</div><div class="date">2026</div></li>
-      <li><div class="t">Who counts as a “native speaker” of English?</div><div class="date">2026</div></li>
-      <li><div class="t">Envelope based rhythm measures of a prosody training program</div><div class="date">2026</div></li>
-      <li><div class="t">English fricative confusions in Korean elementary learners: A one year longitudinal study</div><div class="date">2026</div></li>
+      <li>
+        <div class="t"><span class="me">Lee, K.</span> <em>Text to speech voice accent mismatch and L2 English learners’ intelligibility, comprehensibility, and accentedness.</em></div>
+        <div class="date">2026</div>
+      </li>
+      <li>
+        <div class="t"><span class="me">Lee, K.</span>, Kim, T., Tang, Q., &amp; Banks, J. <em>How adults and children talk about conversational AI: A discourse analysis of YouTube videos.</em></div>
+        <div class="date">2026</div>
+      </li>
+      <li>
+        <div class="t"><span class="me">Lee, K.</span>, &amp; Hannecart, E. <em>Who counts as a “native speaker” of English? Perceptions of nativeness across bilingual and heritage speaker profiles.</em></div>
+        <div class="date">2026</div>
+      </li>
+      <li>
+        <div class="t"><span class="me">Lee, K.</span>, &amp; Tilsen, S. <em>Envelope based rhythm measures of a prosody training program for Korean elementary EFL learners.</em></div>
+        <div class="date">2026</div>
+      </li>
+      <li>
+        <div class="t"><span class="me">Lee, K.</span>, &amp; Tilsen, S. <em>Perceptual confusions of English fricatives by Korean elementary EFL learners: A one year longitudinal study of functional load.</em></div>
+        <div class="date">2026</div>
+      </li>
     </ul>
   </div>
 </section>
@@ -519,78 +588,31 @@
 </section>
 
 <!-- ===================== CV ===================== -->
+<!-- Upload your CV to the repository as KyungA_Lee_CV.pdf (same name, capital letters included) -->
 <section class="view" id="view-cv">
   <div class="container">
     <h2 class="page-title">CV</h2>
-    <p class="page-sub">Positions, education, and highlights.</p>
+    <p class="page-sub">Download my full curriculum vitae.</p>
 
-    <h3 class="group">Positions</h3>
-    <div class="timeline">
-      <div class="tl-item now">
-        <div class="tl-date">Sep 2026 – present</div>
-        <div class="tl-title">Postdoctoral Fellow</div>
-        <div class="tl-org">Cornell Phonetics Lab, Cornell University · Supervisor: Dr. Sam Tilsen</div>
+    <div class="cv-card">
+      <div class="cv-icon" aria-hidden="true">
+        <svg width="44" height="54" viewBox="0 0 44 54" fill="none">
+          <path d="M4 4a4 4 0 0 1 4-4h20l16 16v34a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" fill="currentColor" opacity="0.14"/>
+          <path d="M4 4a4 4 0 0 1 4-4h20l16 16v34a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" stroke="currentColor" stroke-width="2"/>
+          <path d="M28 0v12a4 4 0 0 0 4 4h12" stroke="currentColor" stroke-width="2"/>
+          <line x1="12" y1="28" x2="32" y2="28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="12" y1="35" x2="32" y2="35" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="12" y1="42" x2="24" y2="42" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
       </div>
-      <!-- [SYRACUSE] delete this whole block if you do not want Syracuse shown -->
-      <div class="tl-item now syr">
-        <div class="tl-date">Sep 2026 – present</div>
-        <div class="tl-title">Visiting Scholar</div>
-        <div class="tl-org">iSchool, Syracuse University · Host: Dr. Jaime Banks</div>
+      <div class="cv-body">
+        <h3>KyungA (Kayla) Lee, Curriculum Vitae</h3>
+        <p>PDF · Last updated November 2026</p>
+        <div class="btns">
+          <a class="btn primary" href="KyungA_Lee_CV.pdf" download>Download CV (PDF)</a>
+          <a class="btn ghost" href="KyungA_Lee_CV.pdf" target="_blank" rel="noopener">View in browser</a>
+        </div>
       </div>
-      <div class="tl-item now">
-        <div class="tl-date">2024 – present</div>
-        <div class="tl-title">Advisory and Educational Consultant</div>
-        <div class="tl-org">Juna Accent Coach, LLC</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">2025 – 2026</div>
-        <div class="tl-title">Visiting Researcher</div>
-        <div class="tl-org">Center for Education Research, Seoul National University</div>
-      </div>
-    </div>
-
-    <h3 class="group">Education</h3>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-date">2025</div>
-        <div class="tl-title">Ph.D., English Language Education</div>
-        <div class="tl-org">Seoul National University</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">2021</div>
-        <div class="tl-title">M.A., English Language Education</div>
-        <div class="tl-org">Seoul National University</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">2017</div>
-        <div class="tl-title">B.A., Elementary Education</div>
-        <div class="tl-org">Gyeongin National University of Education</div>
-      </div>
-    </div>
-
-    <h3 class="group">Selected honors</h3>
-    <ul class="items">
-      <li><div class="t">Postdoctoral Travel Grant, Cornell University</div><div class="date">2026</div></li>
-      <li><div class="t">AIED-CON AI Integrated Teaching Tools Competition Award, Seoul National University</div><div class="date">2024</div></li>
-      <li><div class="t">Outstanding Teacher Award, Suwon Mayor’s Commendation</div><div class="date">2021</div></li>
-    </ul>
-
-    <h3 class="group">Service</h3>
-    <div class="chips">
-      <span class="chip">Reviewer, PSLLT Proceedings</span>
-      <span class="chip">Executive Board, Korean Graduate Student Association, Cornell</span>
-      <span class="chip">Facilitator, Korean Conversation Hour, Cornell</span>
-    </div>
-
-    <h3 class="group">Skills</h3>
-    <div class="chips">
-      <span class="chip">Praat</span><span class="chip">R</span><span class="chip">Python</span><span class="chip">LaTeX</span>
-      <span class="chip">Ultrasound tongue imaging</span><span class="chip">EMA</span>
-      <span class="chip">Mixed effects models</span><span class="chip">Gorilla</span><span class="chip">LabVanced</span>
-    </div>
-    <div class="chips" style="margin-top:10px;">
-      <span class="chip">Korean (native)</span><span class="chip">English (fluent)</span>
-      <span class="chip">German (intermediate)</span><span class="chip">Spanish (basic)</span><span class="chip">Chinese (basic)</span>
     </div>
   </div>
 </section>
@@ -604,11 +626,11 @@
       <h3>Let’s talk about speech, rhythm, and AI.</h3>
       <p>The best way to reach me is by email.</p>
       <div class="contact-links">
-        <a href="mailto:kayla.lee@cornell.edu">✉️ kayla.lee@cornell.edu</a>
-        <a href="https://www.linkedin.com/in/kayla-lee-/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.researchgate.net/profile/Kyunga-Lee-5" target="_blank" rel="noopener">ResearchGate</a>
-        <a href="https://orcid.org/0000-0002-9946-6593" target="_blank" rel="noopener">ORCID</a>
-        <a href="https://github.com/onsetrhyme" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:kayla.lee@cornell.edu">kayla.lee@cornell.edu</a>
+        <a class="brand-li" href="https://www.linkedin.com/in/kayla-lee-/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="brand-rg" href="https://www.researchgate.net/profile/Kyunga-Lee-5" target="_blank" rel="noopener">ResearchGate</a>
+        <a class="brand-orcid" href="https://orcid.org/0000-0002-9946-6593" target="_blank" rel="noopener">ORCID</a>
+        <a class="brand-gh" href="https://github.com/onsetrhyme" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
     <p class="address">B14 Morrill Hall, Department of Linguistics, Cornell University, Ithaca, NY 14853</p>
@@ -623,6 +645,20 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+
+  // ---------- Photos: try several file names, otherwise keep the placeholder ----------
+  (function () {
+    document.querySelectorAll("img[data-srcs]").forEach(function (img) {
+      var list = img.getAttribute("data-srcs").split(",");
+      var i = 0;
+      img.addEventListener("error", function () {
+        i++;
+        if (i < list.length) { img.src = list[i]; } else { img.style.display = "none"; }
+      });
+      img.src = list[0];
+    });
+  })();
 
   // ---------- Dark mode ----------
   (function () {

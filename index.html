@@ -37,7 +37,7 @@
     --accent-dark: #7d1414;
     --accent-2: #8a6a2b;
     --accent-soft: #f9e4e4;
-    --name-accent: #f39a24;
+    --name-accent: #F28C28;
     --shadow: 0 8px 30px rgba(35, 20, 20, 0.07);
     --radius: 16px;
     --serif: "Fraunces", Georgia, "Times New Roman", serif;
@@ -53,7 +53,7 @@
     --accent: #ef6b6b;
     --accent-2: #d9b26a;
     --accent-soft: #3a1c1c;
-    --name-accent: #ffba5c;
+    --name-accent: #FFB45E;
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
 
@@ -253,7 +253,7 @@ box-shadow: var(--shadow); cursor: zoom-in;
 /* ---------- Gallery ---------- */
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .shot { margin: 0; }
-.research-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.research-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; column-gap: 22px; row-gap: 28px; }
 .gallery .research-figure img { aspect-ratio: auto; width: 100%; height: auto; max-height: 520px; object-fit: contain; padding: 8px; background: #fff; }
 .shot img {
 width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px;
@@ -594,24 +594,24 @@ html { scroll-behavior: auto; }
 <h3 class="group">Selected research figures</h3>
 <div class="gallery research-gallery">
   <figure class="shot research-figure">
-    <img data-srcs="PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,figures/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,images/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png" alt="Bonferroni adjusted Wilcoxon signed rank test results from PSLLT 2024 research" loading="lazy">
-    <figcaption>PSLLT 2024 · Bonferroni adjusted Wilcoxon signed rank test results</figcaption>
-  </figure>
-  <figure class="shot research-figure">
-    <img data-srcs="PSLLT2024_Target-Consonant-Pairs.png,figures/PSLLT2024_Target-Consonant-Pairs.png,images/PSLLT2024_Target-Consonant-Pairs.png" alt="Target consonant pairs used in PSLLT 2024 research" loading="lazy">
-    <figcaption>PSLLT 2024 · Target consonant pairs</figcaption>
-  </figure>
-  <figure class="shot research-figure">
-    <img data-srcs="AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,figures/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,images/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png" alt="Effectiveness of phonemic awareness instruction by learner subgroup" loading="lazy">
-    <figcaption>AsiaTEFL · Effectiveness of phonemic awareness instruction by subgroup</figcaption>
-  </figure>
-  <figure class="shot research-figure">
     <img data-srcs="Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png,figures/Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png,images/Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png" alt="Pretest and posttest scores by proficiency group" loading="lazy">
-    <figcaption>Languages · Pretest and posttest scores by proficiency group</figcaption>
+    <figcaption>Languages 2025 · Pretest and posttest scores by proficiency group</figcaption>
   </figure>
   <figure class="shot research-figure">
     <img data-srcs="Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png,figures/Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png,images/Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png" alt="Correlation of L2 perception and LC at pretest and posttest, N equals 57" loading="lazy">
-    <figcaption>Languages · L2 perception and LC correlation at pretest and posttest (N = 57)</figcaption>
+    <figcaption>Languages 2025 · L2 perception and LC correlation at pretest and posttest (N = 57)</figcaption>
+  </figure>
+  <figure class="shot research-figure">
+    <img data-srcs="PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,figures/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,images/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png" alt="Bonferroni adjusted Wilcoxon signed rank test results from PSLLT 2024 research" loading="lazy">
+    <figcaption>PSLLT 2025 · Bonferroni adjusted Wilcoxon signed rank test results</figcaption>
+  </figure>
+  <figure class="shot research-figure">
+    <img data-srcs="PSLLT2024_Target-Consonant-Pairs.png,figures/PSLLT2024_Target-Consonant-Pairs.png,images/PSLLT2024_Target-Consonant-Pairs.png" alt="Target consonant pairs used in PSLLT 2024 research" loading="lazy">
+    <figcaption>PSLLT 2025 · Target consonant pairs</figcaption>
+  </figure>
+  <figure class="shot research-figure">
+    <img data-srcs="AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,figures/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,images/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png" alt="Effectiveness of phonemic awareness instruction by learner subgroup" loading="lazy">
+    <figcaption>AsiaTEFL 2020 · Effectiveness of phonemic awareness instruction by subgroup</figcaption>
   </figure>
 </div>
 

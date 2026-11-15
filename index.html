@@ -26,32 +26,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f8fafc;
-    --bg-soft: #edf3f8;
+    --bg: #fbf9f7;
+    --bg-soft: #f3eeea;
     --card: #ffffff;
-    --text: #202a35;
-    --muted: #5e6d7c;
-    --line: #dce5ed;
-    --accent: #155a96;
-    --accent-btn: #155a96;
-    --accent-dark: #0d3f70;
-    --accent-2: #6685a4;
-    --accent-soft: #e6f0f8;
+    --text: #231f20;
+    --muted: #6a6061;
+    --line: #e7dfdb;
+    --accent: #b31b1b;
+    --accent-btn: #b31b1b;
+    --accent-dark: #7d1414;
+    --accent-2: #8a6a2b;
+    --accent-soft: #f9e4e4;
     --shadow: 0 8px 30px rgba(35, 20, 20, 0.07);
     --radius: 16px;
     --serif: "Fraunces", Georgia, "Times New Roman", serif;
     --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   }
   :root[data-theme="dark"] {
-    --bg: #111923;
-    --bg-soft: #182432;
-    --card: #1d2a38;
-    --text: #edf3f8;
-    --muted: #aab9c8;
-    --line: #344657;
-    --accent: #78b6ed;
-    --accent-2: #a6c7e4;
-    --accent-soft: #1e3b55;
+    --bg: #161110;
+    --bg-soft: #1d1716;
+    --card: #211a19;
+    --text: #f1ebe9;
+    --muted: #b3a7a4;
+    --line: #3a2f2d;
+    --accent: #ef6b6b;
+    --accent-2: #d9b26a;
+    --accent-soft: #3a1c1c;
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
 
@@ -136,7 +136,7 @@ padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
 font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.6rem);
 line-height: 1.1; font-weight: 700; margin-bottom: 10px;
 }
-.hero h1 em { font-style: normal; color: var(--accent); }
+.hero h1 em { font-style: normal; color: var(--text); background: linear-gradient(transparent 72%, var(--accent-soft) 72%); }
 .role { font-size: 1.05rem; color: var(--muted); margin-bottom: 16px; }
 .role strong { color: var(--text); font-weight: 600; }
 .lead { font-size: 1.05rem; max-width: 52ch; margin-bottom: 26px; }
@@ -146,14 +146,14 @@ display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-
 font-weight: 600; font-size: 0.95rem; border: 1px solid transparent; transition: all .2s;
 }
 .btn.primary { background: var(--accent-btn); color: #fff; }
-.btn.primary { transform: translateY(-2px); box-shadow: var(--shadow); text-decoration: none; }
+.btn.primary { background: var(--accent-dark); transform: translateY(-2px); box-shadow: var(--shadow); text-decoration: none; }
 .btn.ghost { border-color: var(--line); color: var(--text); background: var(--card); }
 .btn.ghost { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
 /* ---------- Photos (with graceful fallback) ---------- */
 .photo {
 position: relative; overflow: hidden; border-radius: 24px; box-shadow: var(--shadow);
-background: linear-gradient(135deg, var(--accent-dark), #155a96);
+background: linear-gradient(135deg, var(--accent-dark), #b31b1b);
 aspect-ratio: 4 / 5; display: grid; place-items: center;
 color: #fff; font-family: var(--serif); font-size: 3.4rem; font-weight: 700;
 }
@@ -165,12 +165,23 @@ content: ""; position: absolute; inset: 14px -14px -14px 14px;
 border: 2px solid var(--accent); border-radius: 26px; z-index: 0;
 }
 .hero-photo .photo { position: relative; z-index: 1; border-radius: 22px; }
+.photo-flip { display: block; width: 100%; padding: 0; border: 0; cursor: pointer; perspective: 1100px; }
+.photo-flip { outline: 3px solid var(--accent); outline-offset: 5px; }
+.photo-flip-inner { position: absolute; inset: 0; display: block; transform-style: preserve-3d; transition: transform .75s cubic-bezier(.2,.7,.2,1); }
+.photo-flip.is-flipped .photo-flip-inner { transform: rotateY(180deg); }
+.photo-flip-face { position: absolute; inset: 0; display: block; overflow: hidden; border-radius: inherit; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: linear-gradient(135deg, var(--accent-dark), #b31b1b); }
+.photo-flip-back { transform: rotateY(180deg); }
+.photo-flip-face img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.photo-initials { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-family: var(--serif); font-size: 3.4rem; font-weight: 700; }
 .hero-photo figcaption { position: relative; z-index: 1; margin-top: 26px; }
 .art {
 background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px;
 padding: 10px; margin-bottom: 16px;
 }
-.art svg { width: 100%; height: auto; display: block; }
+.art svg { width: 100%; height: auto; display: block; animation: diagram-float 6s ease-in-out infinite; transform-origin: center; }
+.card(2n) .art svg { animation-delay: -3s; }
+.card .art svg { animation-play-state: paused; transform: translateY(-2px) scale(1.02); }
+@keyframes diagram-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 .ink { stroke: var(--accent); fill: none; }
 .ink2 { stroke: var(--muted); fill: none; }
 .fillA { fill: var(--accent); }
@@ -184,6 +195,11 @@ padding: 10px; margin-bottom: 16px;
 .card {
 background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
 padding: 22px 24px; box-shadow: var(--shadow);
+transition: transform .22s ease, border-color .22s ease, background-color .22s ease, box-shadow .22s ease;
+}
+.card {
+background: color-mix(in srgb, var(--accent-soft) 42%, var(--card));
+border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(35, 20, 20, 0.12);
 }
 .card h4 { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 6px; }
 .card p { color: var(--muted); font-size: 0.95rem; }
@@ -198,6 +214,9 @@ padding: 5px 14px; font-size: 0.88rem; color: var(--text);
 /* ---------- About ---------- */
 .about-grid { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
 .about-grid p { margin-bottom: 16px; }
+.about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.about-photos .photo { border-radius: 16px; font-size: 1rem; }
+.about-photos figcaption { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 8px; }
 
 /* ---------- Lists ---------- */
 .items { list-style: none; }
@@ -249,12 +268,15 @@ box-shadow: var(--shadow); cursor: zoom-in;
 /* ---------- Gallery ---------- */
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .shot { margin: 0; }
+.research-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gallery .research-figure img { aspect-ratio: auto; object-fit: contain; max-height: 420px; padding: 8px; background: #fff; }
 .shot img {
 width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px;
 border: 1px solid var(--line); box-shadow: var(--shadow); cursor: zoom-in;
 transition: transform .25s;
 }
-.shot img { transform: translateY(-3px); }
+.shot img { transform: translateY(-3px); border-color: var(--accent); }
+.research-figure img { background: color-mix(in srgb, var(--accent-soft) 30%, #fff); }
 .shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
 #lightbox {
 position: fixed; inset: 0; z-index: 100; background: rgba(15, 8, 8, 0.88);
@@ -263,6 +285,7 @@ display: none; align-items: center; justify-content: center; padding: 24px; curs
 #lightbox.open { display: flex; }
 #lightbox img { max-width: 100%; max-height: 100%; border-radius: 12px; }
 @media (max-width: 860px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .research-gallery { grid-template-columns: 1fr; } }
 
 /* ---------- CV download ---------- */
 .cv-card {
@@ -277,7 +300,7 @@ padding: 36px; box-shadow: var(--shadow); max-width: 720px;
 
 /* ---------- Contact ---------- */
 .contact-box {
-background: linear-gradient(135deg, #0d3f70, #155a96);
+background: linear-gradient(135deg, #7d1414, #b31b1b);
 color: #fff; border-radius: 24px; padding: 48px 32px; text-align: center;
 }
 .contact-box h3 { font-family: var(--serif); font-size: 1.7rem; margin-bottom: 8px; }
@@ -312,6 +335,8 @@ footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 4
 }
 @media (prefers-reduced-motion: reduce) {
 .view.active { animation: none; }
+.art svg { animation: none; }
+.photo-flip-inner, .card, .btn { transition: none; }
 html { scroll-behavior: auto; }
 }
 </style>
@@ -364,12 +389,20 @@ html { scroll-behavior: auto; }
           </div>
         </div>
 
-    <!-- PHOTO 1: upload your photo to the repository as photo.jpg -->
     <figure class="photo-wrap hero-photo">
-      <div class="photo">
-        KL
-        <img data-srcs="KALEE.JPG,KALEE.jpg,kalee.jpg,KALEE.jpeg,photo.jpg" alt="Portrait of Kayla Lee">
-      </div>
+      <button class="photo photo-flip" id="hero-photo-flip" type="button" aria-label="Flip portrait to see another photo" aria-pressed="false">
+        <span class="photo-flip-inner">
+          <span class="photo-flip-face photo-flip-front">
+            <span class="photo-initials">KL</span>
+            <img data-srcs="Me%20infront%20of%20Cornell.jpg,images/Me%20infront%20of%20Cornell.jpg" alt="Kayla Lee in front of Cornell">
+          </span>
+          <span class="photo-flip-face photo-flip-back" aria-hidden="true">
+            <span class="photo-initials">KL</span>
+            <img data-srcs="KALEE.JPG,KALEE.jpg,kalee.jpg,KALEE.jpeg,photo.jpg" alt="Another portrait of Kayla Lee">
+          </span>
+        </span>
+      </button>
+      <figcaption>Click the photo to see another picture</figcaption>
     </figure>
   </div>
 </div>
@@ -439,17 +472,20 @@ html { scroll-behavior: auto; }
           Before research, I taught elementary school in South Korea for eight years. I then earned my M.A. and Ph.D. in English Language Education
           at Seoul National University. That classroom experience still shapes my questions about learning and technology.
         </p>
-        <p>I speak Korean, English, and German, and I enjoy building tools for pronunciation research and teaching.</p>
+        <p>My languages are Korean, English, and German, with conversational proficiency in Spanish and Chinese. I also enjoy building tools for pronunciation research and teaching.</p>
+        <p>I am an advisor to <a href="https://junaaccentcoach.com" target="_blank" rel="noopener">Juna Accent Coach</a>, a pronunciation coaching platform.</p>
       </div>
 
-  <!-- PHOTO 2 (cat): upload your cat photo to the repository as cat.jpg -->
-  <figure class="photo-wrap about-photo">
-    <div class="photo square">
-      CAT
-      <img data-srcs="CAT.JPG,CAT.jpg,cat.jpg,cat.jpeg,CAT.jpeg" alt="Kayla’s cat">
-    </div>
-    <figcaption>My favorite research assistant</figcaption>
-  </figure>
+  <div class="about-photos">
+    <figure class="photo-wrap about-photo">
+      <div class="photo square">CAT<img data-srcs="CAT.JPG,CAT.jpg" alt="Kayla’s cat"></div>
+      <figcaption>My research assistant</figcaption>
+    </figure>
+    <figure class="photo-wrap about-photo">
+      <div class="photo square">CAT<img data-srcs="cat.jpg,CAT.JPG" alt="Kayla’s second cat photo"></div>
+      <figcaption>My other research assistant</figcaption>
+    </figure>
+  </div>
 </div>
 
   </div>
@@ -489,25 +525,25 @@ html { scroll-behavior: auto; }
     </div>
 
 <h3 class="group">Selected research figures</h3>
-<div class="gallery">
-  <figure class="shot">
-    <img data-srcs="PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png" alt="Bonferroni adjusted Wilcoxon signed rank test results from PSLLT 2024 research" loading="lazy">
+<div class="gallery research-gallery">
+  <figure class="shot research-figure">
+    <img data-srcs="PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,figures/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,images/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png" alt="Bonferroni adjusted Wilcoxon signed rank test results from PSLLT 2024 research" loading="lazy">
     <figcaption>PSLLT 2024 · Bonferroni adjusted Wilcoxon signed rank test results</figcaption>
   </figure>
-  <figure class="shot">
-    <img data-srcs="PSLLT2024_Target-Consonant-Pairs.png" alt="Target consonant pairs used in PSLLT 2024 research" loading="lazy">
+  <figure class="shot research-figure">
+    <img data-srcs="PSLLT2024_Target-Consonant-Pairs.png,figures/PSLLT2024_Target-Consonant-Pairs.png,images/PSLLT2024_Target-Consonant-Pairs.png" alt="Target consonant pairs used in PSLLT 2024 research" loading="lazy">
     <figcaption>PSLLT 2024 · Target consonant pairs</figcaption>
   </figure>
-  <figure class="shot">
-    <img data-srcs="AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png" alt="Effectiveness of phonemic awareness instruction by learner subgroup" loading="lazy">
+  <figure class="shot research-figure">
+    <img data-srcs="AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,figures/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,images/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png" alt="Effectiveness of phonemic awareness instruction by learner subgroup" loading="lazy">
     <figcaption>AsiaTEFL · Effectiveness of phonemic awareness instruction by subgroup</figcaption>
   </figure>
-  <figure class="shot">
-    <img data-srcs="Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png" alt="Pretest and posttest scores by proficiency group" loading="lazy">
+  <figure class="shot research-figure">
+    <img data-srcs="Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png,figures/Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png,images/Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png" alt="Pretest and posttest scores by proficiency group" loading="lazy">
     <figcaption>Languages · Pretest and posttest scores by proficiency group</figcaption>
   </figure>
-  <figure class="shot">
-    <img data-srcs="Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png" alt="Correlation of L2 perception and LC at pretest and posttest, N equals 57" loading="lazy">
+  <figure class="shot research-figure">
+    <img data-srcs="Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png,figures/Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png,images/Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png" alt="Correlation of L2 perception and LC at pretest and posttest, N equals 57" loading="lazy">
     <figcaption>Languages · L2 perception and LC correlation at pretest and posttest (N = 57)</figcaption>
   </figure>
 </div>
@@ -824,6 +860,16 @@ html { scroll-behavior: auto; }
     });
   })();
 
+
+  // ---------- Flip the main portrait ----------
+  (function () {
+    var portrait = document.getElementById("hero-photo-flip");
+    if (!portrait) return;
+    portrait.addEventListener("click", function () {
+      var flipped = portrait.classList.toggle("is-flipped");
+      portrait.setAttribute("aria-pressed", String(flipped));
+    });
+  })();
 
   // ---------- Lightbox for gallery photos ----------
   (function () {

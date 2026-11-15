@@ -37,6 +37,7 @@
     --accent-dark: #7d1414;
     --accent-2: #8a6a2b;
     --accent-soft: #f9e4e4;
+    --name-accent: #f39a24;
     --shadow: 0 8px 30px rgba(35, 20, 20, 0.07);
     --radius: 16px;
     --serif: "Fraunces", Georgia, "Times New Roman", serif;
@@ -52,6 +53,7 @@
     --accent: #ef6b6b;
     --accent-2: #d9b26a;
     --accent-soft: #3a1c1c;
+    --name-accent: #ffba5c;
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
 
@@ -93,18 +95,9 @@ nav::-webkit-scrollbar { display: none; }
 nav a.link {
 display: block; padding: 7px 14px; border-radius: 999px; white-space: nowrap;
 color: var(--muted); font-size: 0.92rem; font-weight: 500;
-transition: color .2s ease, background-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
-nav a.link,
-nav a.link {
-color: #fff; background: var(--accent); transform: translateY(-2px);
-box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 24%, transparent);
-text-decoration: none; outline: none;
-}
-nav a.link { transform: translateY(0); }
+nav a.link { color: var(--text); background: var(--bg-soft); text-decoration: none; }
 nav a.link.active { color: var(--accent); background: var(--accent-soft); }
-nav a.link.active,
-nav a.link.active { color: #fff; background: var(--accent); }
 #theme-toggle {
 border: 1px solid var(--line); background: var(--card); color: var(--text);
 width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; flex: none;
@@ -136,7 +129,7 @@ padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
 font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.6rem);
 line-height: 1.1; font-weight: 700; margin-bottom: 10px;
 }
-.hero h1 em { font-style: normal; color: var(--text); background: linear-gradient(transparent 72%, var(--accent-soft) 72%); }
+.hero h1 em { font-style: normal; color: var(--name-accent); }
 .role { font-size: 1.05rem; color: var(--muted); margin-bottom: 16px; }
 .role strong { color: var(--text); font-weight: 600; }
 .lead { font-size: 1.05rem; max-width: 52ch; margin-bottom: 26px; }
@@ -165,14 +158,6 @@ content: ""; position: absolute; inset: 14px -14px -14px 14px;
 border: 2px solid var(--accent); border-radius: 26px; z-index: 0;
 }
 .hero-photo .photo { position: relative; z-index: 1; border-radius: 22px; }
-.photo-flip { display: block; width: 100%; padding: 0; border: 0; cursor: pointer; perspective: 1100px; }
-.photo-flip { outline: 3px solid var(--accent); outline-offset: 5px; }
-.photo-flip-inner { position: absolute; inset: 0; display: block; transform-style: preserve-3d; transition: transform .75s cubic-bezier(.2,.7,.2,1); }
-.photo-flip.is-flipped .photo-flip-inner { transform: rotateY(180deg); }
-.photo-flip-face { position: absolute; inset: 0; display: block; overflow: hidden; border-radius: inherit; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: linear-gradient(135deg, var(--accent-dark), #b31b1b); }
-.photo-flip-back { transform: rotateY(180deg); }
-.photo-flip-face img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
-.photo-initials { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-family: var(--serif); font-size: 3.4rem; font-weight: 700; }
 .hero-photo figcaption { position: relative; z-index: 1; margin-top: 26px; }
 .art {
 background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px;
@@ -212,11 +197,11 @@ padding: 5px 14px; font-size: 0.88rem; color: var(--text);
 .home-cards { margin-top: 48px; }
 
 /* ---------- About ---------- */
-.about-grid { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: start; }
 .about-grid p { margin-bottom: 16px; }
-.about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.about-photos .photo { border-radius: 16px; font-size: 1rem; }
-.about-photos figcaption { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 8px; }
+.about-photo { width: 100%; }
+.about-photo .photo { width: 100%; border-radius: 18px; }
+.about-photo figcaption { text-align: center; color: var(--muted); font-size: 0.88rem; margin-top: 10px; }
 
 /* ---------- Lists ---------- */
 .items { list-style: none; }
@@ -268,8 +253,8 @@ box-shadow: var(--shadow); cursor: zoom-in;
 /* ---------- Gallery ---------- */
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .shot { margin: 0; }
-.research-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.gallery .research-figure img { aspect-ratio: auto; object-fit: contain; max-height: 420px; padding: 8px; background: #fff; }
+.research-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.gallery .research-figure img { aspect-ratio: auto; width: 100%; height: auto; max-height: 520px; object-fit: contain; padding: 8px; background: #fff; }
 .shot img {
 width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px;
 border: 1px solid var(--line); box-shadow: var(--shadow); cursor: zoom-in;
@@ -331,7 +316,7 @@ footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 4
 .items .date { text-align: left; }
 .nav-inner { flex-direction: column; align-items: stretch; padding-top: 10px; padding-bottom: 10px; gap: 6px; }
 .hero-photo { max-width: 280px; }
-.about-photo { max-width: 260px; }
+.about-photo { max-width: 320px; }
 }
 @media (prefers-reduced-motion: reduce) {
 .view.active { animation: none; }
@@ -390,19 +375,10 @@ html { scroll-behavior: auto; }
         </div>
 
     <figure class="photo-wrap hero-photo">
-      <button class="photo photo-flip" id="hero-photo-flip" type="button" aria-label="Flip portrait to see another photo" aria-pressed="false">
-        <span class="photo-flip-inner">
-          <span class="photo-flip-face photo-flip-front">
-            <span class="photo-initials">KL</span>
-            <img data-srcs="Me%20infront%20of%20Cornell.jpg,images/Me%20infront%20of%20Cornell.jpg" alt="Kayla Lee in front of Cornell">
-          </span>
-          <span class="photo-flip-face photo-flip-back" aria-hidden="true">
-            <span class="photo-initials">KL</span>
-            <img data-srcs="KALEE.JPG,KALEE.jpg,kalee.jpg,KALEE.jpeg,photo.jpg" alt="Another portrait of Kayla Lee">
-          </span>
-        </span>
-      </button>
-      <figcaption>Click the photo to see another picture</figcaption>
+      <div class="photo">
+        KL
+        <img data-srcs="KALEE.JPG" alt="Portrait of Kayla Lee">
+      </div>
     </figure>
   </div>
 </div>
@@ -476,16 +452,10 @@ html { scroll-behavior: auto; }
         <p>I am an advisor to <a href="https://junaaccentcoach.com" target="_blank" rel="noopener">Juna Accent Coach</a>, a pronunciation coaching platform.</p>
       </div>
 
-  <div class="about-photos">
-    <figure class="photo-wrap about-photo">
-      <div class="photo square">CAT<img data-srcs="CAT.JPG,CAT.jpg" alt="Kayla’s cat"></div>
-      <figcaption>My research assistant</figcaption>
-    </figure>
-    <figure class="photo-wrap about-photo">
-      <div class="photo square">CAT<img data-srcs="cat.jpg,CAT.JPG" alt="Kayla’s second cat photo"></div>
-      <figcaption>My other research assistant</figcaption>
-    </figure>
-  </div>
+  <figure class="photo-wrap about-photo">
+    <div class="photo square">CAT<img data-srcs="CAT.JPG,cat.jpg" alt="Kayla’s cat"></div>
+    <figcaption>My favorite research assistant</figcaption>
+  </figure>
 </div>
 
   </div>
@@ -523,30 +493,6 @@ html { scroll-behavior: auto; }
     <div class="card">
       <p>Mobile assisted high variability phonetic training and ASR based articulation practice for EFL children: effects on L2 perception, production, phonological working memory, and learner experience.</p>
     </div>
-
-<h3 class="group">Selected research figures</h3>
-<div class="gallery research-gallery">
-  <figure class="shot research-figure">
-    <img data-srcs="PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,figures/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,images/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png" alt="Bonferroni adjusted Wilcoxon signed rank test results from PSLLT 2024 research" loading="lazy">
-    <figcaption>PSLLT 2024 · Bonferroni adjusted Wilcoxon signed rank test results</figcaption>
-  </figure>
-  <figure class="shot research-figure">
-    <img data-srcs="PSLLT2024_Target-Consonant-Pairs.png,figures/PSLLT2024_Target-Consonant-Pairs.png,images/PSLLT2024_Target-Consonant-Pairs.png" alt="Target consonant pairs used in PSLLT 2024 research" loading="lazy">
-    <figcaption>PSLLT 2024 · Target consonant pairs</figcaption>
-  </figure>
-  <figure class="shot research-figure">
-    <img data-srcs="AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,figures/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,images/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png" alt="Effectiveness of phonemic awareness instruction by learner subgroup" loading="lazy">
-    <figcaption>AsiaTEFL · Effectiveness of phonemic awareness instruction by subgroup</figcaption>
-  </figure>
-  <figure class="shot research-figure">
-    <img data-srcs="Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png,figures/Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png,images/Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png" alt="Pretest and posttest scores by proficiency group" loading="lazy">
-    <figcaption>Languages · Pretest and posttest scores by proficiency group</figcaption>
-  </figure>
-  <figure class="shot research-figure">
-    <img data-srcs="Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png,figures/Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png,images/Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png" alt="Correlation of L2 perception and LC at pretest and posttest, N equals 57" loading="lazy">
-    <figcaption>Languages · L2 perception and LC correlation at pretest and posttest (N = 57)</figcaption>
-  </figure>
-</div>
 
   </div>
 </section>
@@ -645,6 +591,29 @@ html { scroll-behavior: auto; }
     <div class="date">2026</div>
   </li>
 </ul>
+<h3 class="group">Selected research figures</h3>
+<div class="gallery research-gallery">
+  <figure class="shot research-figure">
+    <img data-srcs="PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,figures/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png,images/PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png" alt="Bonferroni adjusted Wilcoxon signed rank test results from PSLLT 2024 research" loading="lazy">
+    <figcaption>PSLLT 2024 · Bonferroni adjusted Wilcoxon signed rank test results</figcaption>
+  </figure>
+  <figure class="shot research-figure">
+    <img data-srcs="PSLLT2024_Target-Consonant-Pairs.png,figures/PSLLT2024_Target-Consonant-Pairs.png,images/PSLLT2024_Target-Consonant-Pairs.png" alt="Target consonant pairs used in PSLLT 2024 research" loading="lazy">
+    <figcaption>PSLLT 2024 · Target consonant pairs</figcaption>
+  </figure>
+  <figure class="shot research-figure">
+    <img data-srcs="AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,figures/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png,images/AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png" alt="Effectiveness of phonemic awareness instruction by learner subgroup" loading="lazy">
+    <figcaption>AsiaTEFL · Effectiveness of phonemic awareness instruction by subgroup</figcaption>
+  </figure>
+  <figure class="shot research-figure">
+    <img data-srcs="Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png,figures/Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png,images/Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png" alt="Pretest and posttest scores by proficiency group" loading="lazy">
+    <figcaption>Languages · Pretest and posttest scores by proficiency group</figcaption>
+  </figure>
+  <figure class="shot research-figure">
+    <img data-srcs="Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png,figures/Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png,images/Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png" alt="Correlation of L2 perception and LC at pretest and posttest, N equals 57" loading="lazy">
+    <figcaption>Languages · L2 perception and LC correlation at pretest and posttest (N = 57)</figcaption>
+  </figure>
+</div>
 
   </div>
 </section>
@@ -861,15 +830,6 @@ html { scroll-behavior: auto; }
   })();
 
 
-  // ---------- Flip the main portrait ----------
-  (function () {
-    var portrait = document.getElementById("hero-photo-flip");
-    if (!portrait) return;
-    portrait.addEventListener("click", function () {
-      var flipped = portrait.classList.toggle("is-flipped");
-      portrait.setAttribute("aria-pressed", String(flipped));
-    });
-  })();
 
   // ---------- Lightbox for gallery photos ----------
   (function () {

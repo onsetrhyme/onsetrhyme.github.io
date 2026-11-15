@@ -26,32 +26,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fbf9f7;
-    --bg-soft: #f3eeea;
+    --bg: #f8fafc;
+    --bg-soft: #edf3f8;
     --card: #ffffff;
-    --text: #231f20;
-    --muted: #6a6061;
-    --line: #e7dfdb;
-    --accent: #b31b1b;
-    --accent-btn: #b31b1b;
-    --accent-dark: #7d1414;
-    --accent-2: #8a6a2b;
-    --accent-soft: #f9e4e4;
+    --text: #202a35;
+    --muted: #5e6d7c;
+    --line: #dce5ed;
+    --accent: #155a96;
+    --accent-btn: #155a96;
+    --accent-dark: #0d3f70;
+    --accent-2: #6685a4;
+    --accent-soft: #e6f0f8;
     --shadow: 0 8px 30px rgba(35, 20, 20, 0.07);
     --radius: 16px;
     --serif: "Fraunces", Georgia, "Times New Roman", serif;
     --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   }
   :root[data-theme="dark"] {
-    --bg: #161110;
-    --bg-soft: #1d1716;
-    --card: #211a19;
-    --text: #f1ebe9;
-    --muted: #b3a7a4;
-    --line: #3a2f2d;
-    --accent: #ef6b6b;
-    --accent-2: #d9b26a;
-    --accent-soft: #3a1c1c;
+    --bg: #111923;
+    --bg-soft: #182432;
+    --card: #1d2a38;
+    --text: #edf3f8;
+    --muted: #aab9c8;
+    --line: #344657;
+    --accent: #78b6ed;
+    --accent-2: #a6c7e4;
+    --accent-soft: #1e3b55;
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
 
@@ -93,9 +93,18 @@ nav::-webkit-scrollbar { display: none; }
 nav a.link {
 display: block; padding: 7px 14px; border-radius: 999px; white-space: nowrap;
 color: var(--muted); font-size: 0.92rem; font-weight: 500;
+transition: color .2s ease, background-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
-nav a.link { color: var(--text); background: var(--bg-soft); text-decoration: none; }
+nav a.link,
+nav a.link {
+color: #fff; background: var(--accent); transform: translateY(-2px);
+box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 24%, transparent);
+text-decoration: none; outline: none;
+}
+nav a.link { transform: translateY(0); }
 nav a.link.active { color: var(--accent); background: var(--accent-soft); }
+nav a.link.active,
+nav a.link.active { color: #fff; background: var(--accent); }
 #theme-toggle {
 border: 1px solid var(--line); background: var(--card); color: var(--text);
 width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; flex: none;
@@ -144,7 +153,7 @@ font-weight: 600; font-size: 0.95rem; border: 1px solid transparent; transition:
 /* ---------- Photos (with graceful fallback) ---------- */
 .photo {
 position: relative; overflow: hidden; border-radius: 24px; box-shadow: var(--shadow);
-background: linear-gradient(135deg, var(--accent-dark), #b31b1b);
+background: linear-gradient(135deg, var(--accent-dark), #155a96);
 aspect-ratio: 4 / 5; display: grid; place-items: center;
 color: #fff; font-family: var(--serif); font-size: 3.4rem; font-weight: 700;
 }
@@ -268,7 +277,7 @@ padding: 36px; box-shadow: var(--shadow); max-width: 720px;
 
 /* ---------- Contact ---------- */
 .contact-box {
-background: linear-gradient(135deg, #7d1414, #b31b1b);
+background: linear-gradient(135deg, #0d3f70, #155a96);
 color: #fff; border-radius: 24px; padding: 48px 32px; text-align: center;
 }
 .contact-box h3 { font-family: var(--serif); font-size: 1.7rem; margin-bottom: 8px; }

@@ -1,9 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>KyungA (Kayla) Lee, Ph.D.</title>
+<!-- Google Analytics 4 -->
+<script>
+  const GA_MEASUREMENT_ID = "G-H7VZJCV7N6";
+  if (/^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID) && !GA_MEASUREMENT_ID.includes("REPLACE")) {
+    const gaScript = document.createElement("script");
+    gaScript.async = true;
+    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID;
+    document.head.appendChild(gaScript);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", GA_MEASUREMENT_ID);
+  }
+</script>
 <meta name="description" content="Personal website of KyungA (Kayla) Lee, Ph.D. Speech rhythm, prosody, L2 speech perception and production, and human–AI communication.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,261 +55,263 @@
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--sans);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  img { max-width: 100%; display: block; }
+{ box-sizing: border-box; margin: 0; padding: 0; }
+ { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+html { scroll-behavior: smooth; }
+body {
+font-family: var(--sans);
+background: var(--bg);
+color: var(--text);
+line-height: 1.7;
+font-size: 16px;
+-webkit-font-smoothing: antialiased;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+a { color: var(--accent); text-decoration: none; }
+a { text-decoration: underline; text-underline-offset: 3px; }
+img { max-width: 100%; display: block; }
 
-  /* ---------- Nav ---------- */
-  header.nav {
-    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner {
-    max-width: 1040px; margin: 0 auto; padding: 0 24px;
-    min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
-  .brand { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; color: var(--text); white-space: nowrap; }
-  .brand span { color: var(--accent); }
-  nav { display: flex; align-items: center; gap: 6px; overflow-x: auto; scrollbar-width: none; }
-  nav::-webkit-scrollbar { display: none; }
-  nav a.link {
-    display: block; padding: 7px 14px; border-radius: 999px; white-space: nowrap;
-    color: var(--muted); font-size: 0.92rem; font-weight: 500;
-  }
-  nav a.link:hover { color: var(--text); background: var(--bg-soft); text-decoration: none; }
-  nav a.link.active { color: var(--accent); background: var(--accent-soft); }
-  #theme-toggle {
-    border: 1px solid var(--line); background: var(--card); color: var(--text);
-    width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; flex: none;
-  }
-  #theme-toggle:hover { border-color: var(--accent); }
+/* ---------- Nav ---------- */
+header.nav {
+position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+background: color-mix(in srgb, var(--bg) 88%, transparent);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+max-width: 1040px; margin: 0 auto; padding: 0 24px;
+min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; color: var(--text); white-space: nowrap; }
+.brand span { color: var(--accent); }
+nav { display: flex; align-items: center; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+nav::-webkit-scrollbar { display: none; }
+nav a.link {
+display: block; padding: 7px 14px; border-radius: 999px; white-space: nowrap;
+color: var(--muted); font-size: 0.92rem; font-weight: 500;
+}
+nav a.link { color: var(--text); background: var(--bg-soft); text-decoration: none; }
+nav a.link.active { color: var(--accent); background: var(--accent-soft); }
+#theme-toggle {
+border: 1px solid var(--line); background: var(--card); color: var(--text);
+width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; flex: none;
+}
+#theme-toggle { border-color: var(--accent); }
 
-  /* ---------- Views (one visible at a time) ---------- */
-  main { flex: 1; }
-  .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-  .view { display: none; padding: 56px 0 24px; }
-  .view.active { display: block; animation: fadeIn .45s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+/* ---------- Views (one visible at a time) ---------- */
+main { flex: 1; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.view { display: none; padding: 56px 0 24px; }
+.view.active { display: block; animation: fadeIn .45s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-  .page-title { font-family: var(--serif); font-size: 2.2rem; font-weight: 600; margin-bottom: 6px; }
-  .page-sub { color: var(--muted); margin-bottom: 32px; }
-  h3.group { font-family: var(--serif); font-size: 1.15rem; margin: 34px 0 10px; color: var(--accent); }
+.page-title { font-family: var(--serif); font-size: 2.2rem; font-weight: 600; margin-bottom: 6px; }
+.page-sub { color: var(--muted); margin-bottom: 32px; }
+h3.group { font-family: var(--serif); font-size: 1.15rem; margin: 34px 0 10px; color: var(--accent); }
 
-  /* ---------- Hero (Home) ---------- */
-  .hero {
-    padding: 40px 0 8px;
-  }
-  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
-  .eyebrow {
-    display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
-    padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
-  }
-  .hero h1 {
-    font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.6rem);
-    line-height: 1.1; font-weight: 700; margin-bottom: 10px;
-  }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .role { font-size: 1.05rem; color: var(--muted); margin-bottom: 16px; }
-  .role strong { color: var(--text); font-weight: 600; }
-  .lead { font-size: 1.05rem; max-width: 52ch; margin-bottom: 26px; }
-  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px;
-    font-weight: 600; font-size: 0.95rem; border: 1px solid transparent; transition: all .2s;
-  }
-  .btn.primary { background: var(--accent-btn); color: #fff; }
-  .btn.primary:hover { transform: translateY(-2px); box-shadow: var(--shadow); text-decoration: none; }
-  .btn.ghost { border-color: var(--line); color: var(--text); background: var(--card); }
-  .btn.ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+/* ---------- Hero (Home) ---------- */
+.hero {
+padding: 40px 0 8px;
+}
+.hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+.eyebrow {
+display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em;
+text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
+padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+}
+.hero h1 {
+font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.6rem);
+line-height: 1.1; font-weight: 700; margin-bottom: 10px;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.role { font-size: 1.05rem; color: var(--muted); margin-bottom: 16px; }
+.role strong { color: var(--text); font-weight: 600; }
+.lead { font-size: 1.05rem; max-width: 52ch; margin-bottom: 26px; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px;
+font-weight: 600; font-size: 0.95rem; border: 1px solid transparent; transition: all .2s;
+}
+.btn.primary { background: var(--accent-btn); color: #fff; }
+.btn.primary { transform: translateY(-2px); box-shadow: var(--shadow); text-decoration: none; }
+.btn.ghost { border-color: var(--line); color: var(--text); background: var(--card); }
+.btn.ghost { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
-  /* ---------- Photos (with graceful fallback) ---------- */
-  .photo {
-    position: relative; overflow: hidden; border-radius: 24px; box-shadow: var(--shadow);
-    background: linear-gradient(135deg, var(--accent-dark), #b31b1b);
-    aspect-ratio: 4 / 5; display: grid; place-items: center;
-    color: #fff; font-family: var(--serif); font-size: 3.4rem; font-weight: 700;
-  }
-  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
-  .photo.square { font-size: 1.6rem; letter-spacing: 0.2em; aspect-ratio: 1 / 1; }
-  .hero-photo { position: relative; margin-right: 14px; }
-  .hero-photo::before {
-    content: ""; position: absolute; inset: 14px -14px -14px 14px;
-    border: 2px solid var(--accent); border-radius: 26px; z-index: 0;
-  }
-  .hero-photo .photo { position: relative; z-index: 1; border-radius: 22px; }
-  .hero-photo figcaption { position: relative; z-index: 1; margin-top: 26px; }
-  .art {
-    background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px;
-    padding: 10px; margin-bottom: 16px;
-  }
-  .art svg { width: 100%; height: auto; display: block; }
-  .ink { stroke: var(--accent); fill: none; }
-  .ink2 { stroke: var(--muted); fill: none; }
-  .fillA { fill: var(--accent); }
-  .fillD { fill: var(--accent-dark); }
-  .fillM { fill: var(--muted); }
-  .photo-wrap figcaption { text-align: center; color: var(--muted); font-size: 0.88rem; margin-top: 10px; }
+/* ---------- Photos (with graceful fallback) ---------- */
+.photo {
+position: relative; overflow: hidden; border-radius: 24px; box-shadow: var(--shadow);
+background: linear-gradient(135deg, var(--accent-dark), #b31b1b);
+aspect-ratio: 4 / 5; display: grid; place-items: center;
+color: #fff; font-family: var(--serif); font-size: 3.4rem; font-weight: 700;
+}
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.photo.square { font-size: 1.6rem; letter-spacing: 0.2em; aspect-ratio: 1 / 1; }
+.hero-photo { position: relative; margin-right: 14px; }
+.hero-photo::before {
+content: ""; position: absolute; inset: 14px -14px -14px 14px;
+border: 2px solid var(--accent); border-radius: 26px; z-index: 0;
+}
+.hero-photo .photo { position: relative; z-index: 1; border-radius: 22px; }
+.hero-photo figcaption { position: relative; z-index: 1; margin-top: 26px; }
+.art {
+background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px;
+padding: 10px; margin-bottom: 16px;
+}
+.art svg { width: 100%; height: auto; display: block; }
+.ink { stroke: var(--accent); fill: none; }
+.ink2 { stroke: var(--muted); fill: none; }
+.fillA { fill: var(--accent); }
+.fillD { fill: var(--accent-dark); }
+.fillM { fill: var(--muted); }
+.photo-wrap figcaption { text-align: center; color: var(--muted); font-size: 0.88rem; margin-top: 10px; }
 
-  /* ---------- Cards / chips ---------- */
-  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 22px 24px; box-shadow: var(--shadow);
-  }
-  .card h4 { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 6px; }
-  .card p { color: var(--muted); font-size: 0.95rem; }
-  
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip {
-    background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px;
-    padding: 5px 14px; font-size: 0.88rem; color: var(--text);
-  }
-  .home-cards { margin-top: 48px; }
+/* ---------- Cards / chips ---------- */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card {
+background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+padding: 22px 24px; box-shadow: var(--shadow);
+}
+.card h4 { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 6px; }
+.card p { color: var(--muted); font-size: 0.95rem; }
 
-  /* ---------- About ---------- */
-  .about-grid { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
-  .about-grid p { margin-bottom: 16px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+background: var(--bg-soft); border: 1px solid var(--line); border-radius: 999px;
+padding: 5px 14px; font-size: 0.88rem; color: var(--text);
+}
+.home-cards { margin-top: 48px; }
 
-  /* ---------- Lists ---------- */
-  .items { list-style: none; }
-  .items li {
-    display: grid; grid-template-columns: 1fr auto; gap: 6px 24px;
-    padding: 14px 0; border-bottom: 1px solid var(--line);
-  }
-  .items li:last-child { border-bottom: none; }
-  .items .date { color: var(--muted); font-size: 0.88rem; font-weight: 500; white-space: nowrap; text-align: right; }
-  .items .t { font-weight: 500; }
-  .items .m { color: var(--muted); font-size: 0.92rem; }
-  .items .me { font-weight: 600; }
-  .tag {
-    display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 2px 9px; border-radius: 999px;
-    margin-left: 6px; vertical-align: middle; background: var(--accent-soft); color: var(--accent);
-  }
-  .tag.warm { background: color-mix(in srgb, var(--accent-2) 18%, transparent); color: var(--accent-2); }
+/* ---------- About ---------- */
+.about-grid { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
+.about-grid p { margin-bottom: 16px; }
 
-  /* ---------- Timeline ---------- */
-  .timeline { position: relative; margin-left: 8px; padding-left: 28px; border-left: 2px solid var(--line); }
-  .tl-item { position: relative; padding-bottom: 24px; }
-  .tl-item::before {
-    content: ""; position: absolute; left: -37px; top: 6px; width: 14px; height: 14px; border-radius: 50%;
-    background: var(--bg); border: 3px solid var(--accent);
-  }
-  .tl-item.now::before { background: var(--accent); border-color: var(--accent); }
-  .tl-date { font-size: 0.85rem; font-weight: 600; color: var(--accent); }
-  .tl-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
-  .tl-org { color: var(--muted); font-size: 0.95rem; }
+/* ---------- Lists ---------- */
+.items { list-style: none; }
+.items li {
+display: grid; grid-template-columns: 1fr auto; gap: 6px 24px;
+padding: 14px 0; border-bottom: 1px solid var(--line);
+}
+.items li { border-bottom: none; }
+.items .date { color: var(--muted); font-size: 0.88rem; font-weight: 500; white-space: nowrap; text-align: right; }
+.items .t { font-weight: 500; }
+.items .m { color: var(--muted); font-size: 0.92rem; }
+.items .me { font-weight: 600; }
+.tag {
+display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 2px 9px; border-radius: 999px;
+margin-left: 6px; vertical-align: middle; background: var(--accent-soft); color: var(--accent);
+}
+.tag.warm { background: color-mix(in srgb, var(--accent-2) 18%, transparent); color: var(--accent-2); }
 
-  /* ---------- Featured project ---------- */
-  .feature {
-    display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center;
-    margin-top: 64px; padding: 36px; background: var(--card);
-    border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow);
-  }
-  .feature-title { font-family: var(--serif); font-size: 1.8rem; line-height: 1.2; margin-bottom: 8px; }
-  .feature-paper { color: var(--muted); font-size: 0.92rem; font-style: italic; margin-bottom: 14px; }
-  .feature-text > p { margin-bottom: 16px; }
-  .feature-note { color: var(--muted); font-size: 0.85rem; margin-top: 18px; margin-bottom: 0 !important; }
-  .feature-fig { margin: 0; }
-  .feature-fig img {
-    width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line);
-    box-shadow: var(--shadow); cursor: zoom-in;
-  }
-  .feature-fig figcaption { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 8px; }
-  @media (max-width: 860px) { .feature { grid-template-columns: 1fr; padding: 24px; gap: 24px; } }
+/* ---------- Timeline ---------- */
+.timeline { position: relative; margin-left: 8px; padding-left: 28px; border-left: 2px solid var(--line); }
+.tl-item { position: relative; padding-bottom: 24px; }
+.tl-item::before {
+content: ""; position: absolute; left: -37px; top: 6px; width: 14px; height: 14px; border-radius: 50%;
+background: var(--bg); border: 3px solid var(--accent);
+}
+.tl-item.now::before { background: var(--accent); border-color: var(--accent); }
+.tl-date { font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+.tl-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
+.tl-org { color: var(--muted); font-size: 0.95rem; }
 
-  /* ---------- Gallery ---------- */
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .shot { margin: 0; }
-  .shot img {
-    width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px;
-    border: 1px solid var(--line); box-shadow: var(--shadow); cursor: zoom-in;
-    transition: transform .25s;
-  }
-  .shot img:hover { transform: translateY(-3px); }
-  .shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
-  #lightbox {
-    position: fixed; inset: 0; z-index: 100; background: rgba(15, 8, 8, 0.88);
-    display: none; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out;
-  }
-  #lightbox.open { display: flex; }
-  #lightbox img { max-width: 100%; max-height: 100%; border-radius: 12px; }
-  @media (max-width: 860px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+/* ---------- Featured project ---------- */
+.feature {
+display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center;
+margin-top: 64px; padding: 36px; background: var(--card);
+border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow);
+}
+.feature-title { font-family: var(--serif); font-size: 1.8rem; line-height: 1.2; margin-bottom: 8px; }
+.feature-paper { color: var(--muted); font-size: 0.92rem; font-style: italic; margin-bottom: 14px; }
+.feature-text > p { margin-bottom: 16px; }
+.feature-note { color: var(--muted); font-size: 0.85rem; margin-top: 18px; margin-bottom: 0 !important; }
+.feature-fig { margin: 0; }
+.feature-fig img {
+width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line);
+box-shadow: var(--shadow); cursor: zoom-in;
+}
+.feature-fig figcaption { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 8px; }
+@media (max-width: 860px) { .feature { grid-template-columns: 1fr; padding: 24px; gap: 24px; } }
 
-  /* ---------- CV download ---------- */
-  .cv-card {
-    display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
-    background: var(--card); border: 1px solid var(--line); border-radius: 24px;
-    padding: 36px; box-shadow: var(--shadow); max-width: 720px;
-  }
-  .cv-icon { color: var(--accent); flex: none; }
-  .cv-body { flex: 1; min-width: 240px; }
-  .cv-body h3 { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 4px; }
-  .cv-body p { color: var(--muted); margin-bottom: 20px; }
+/* ---------- Gallery ---------- */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.shot { margin: 0; }
+.shot img {
+width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px;
+border: 1px solid var(--line); box-shadow: var(--shadow); cursor: zoom-in;
+transition: transform .25s;
+}
+.shot img { transform: translateY(-3px); }
+.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
+#lightbox {
+position: fixed; inset: 0; z-index: 100; background: rgba(15, 8, 8, 0.88);
+display: none; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out;
+}
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 100%; max-height: 100%; border-radius: 12px; }
+@media (max-width: 860px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
 
-  /* ---------- Contact ---------- */
-  .contact-box {
-    background: linear-gradient(135deg, #7d1414, #b31b1b);
-    color: #fff; border-radius: 24px; padding: 48px 32px; text-align: center;
-  }
-  .contact-box h3 { font-family: var(--serif); font-size: 1.7rem; margin-bottom: 8px; }
-  .contact-box p { opacity: 0.92; margin-bottom: 24px; }
-  .contact-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .contact-links a {
-    background: rgba(255,255,255,0.16); color: #fff; padding: 9px 18px; border-radius: 999px;
-    font-size: 0.92rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.28);
-  }
-  .contact-links a:hover { background: rgba(255,255,255,0.28); text-decoration: none; }
-  .contact-links a.brand-li { background: #0a66c2; border-color: #0a66c2; color: #fff; }
-  .contact-links a.brand-rg { background: #00ccbb; border-color: #00ccbb; color: #fff; }
-  .contact-links a.brand-orcid { background: #a6ce39; border-color: #a6ce39; color: #1b2a00; }
-  .contact-links a.brand-gh { background: #24292f; border-color: #24292f; color: #fff; }
-  .contact-links a.brand-li:hover { background: #0b5aa8; }
-  .contact-links a.brand-rg:hover { background: #00b3a4; }
-  .contact-links a.brand-orcid:hover { background: #95bb2e; }
-  .contact-links a.brand-gh:hover { background: #3a4048; }
-  .address { text-align: center; color: var(--muted); font-size: 0.92rem; margin-top: 22px; }
+/* ---------- CV download ---------- */
+.cv-card {
+display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+background: var(--card); border: 1px solid var(--line); border-radius: 24px;
+padding: 36px; box-shadow: var(--shadow); max-width: 720px;
+}
+.cv-icon { color: var(--accent); flex: none; }
+.cv-body { flex: 1; min-width: 240px; }
+.cv-body h3 { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 4px; }
+.cv-body p { color: var(--muted); margin-bottom: 20px; }
 
-  footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 40px 24px 48px; }
+/* ---------- Contact ---------- */
+.contact-box {
+background: linear-gradient(135deg, #7d1414, #b31b1b);
+color: #fff; border-radius: 24px; padding: 48px 32px; text-align: center;
+}
+.contact-box h3 { font-family: var(--serif); font-size: 1.7rem; margin-bottom: 8px; }
+.contact-box p { opacity: 0.92; margin-bottom: 24px; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.contact-links a {
+background: rgba(255,255,255,0.16); color: #fff; padding: 9px 18px; border-radius: 999px;
+font-size: 0.92rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.28);
+}
+.contact-links a { background: rgba(255,255,255,0.28); text-decoration: none; }
+.contact-links a.brand-li { background: #0a66c2; border-color: #0a66c2; color: #fff; }
+.contact-links a.brand-rg { background: #00ccbb; border-color: #00ccbb; color: #fff; }
+.contact-links a.brand-orcid { background: #a6ce39; border-color: #a6ce39; color: #1b2a00; }
+.contact-links a.brand-gh { background: #24292f; border-color: #24292f; color: #fff; }
+.contact-links a.brand-li { background: #0b5aa8; }
+.contact-links a.brand-rg { background: #00b3a4; }
+.contact-links a.brand-orcid { background: #95bb2e; }
+.contact-links a.brand-gh { background: #3a4048; }
+.address { text-align: center; color: var(--muted); font-size: 0.92rem; margin-top: 22px; }
 
-  /* ---------- Responsive ---------- */
-  @media (max-width: 860px) {
-    .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 32px; }
-    .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .items li { grid-template-columns: 1fr; }
-    .items .date { text-align: left; }
-    .nav-inner { flex-direction: column; align-items: stretch; padding-top: 10px; padding-bottom: 10px; gap: 6px; }
-    .hero-photo { max-width: 280px; }
-    .about-photo { max-width: 260px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .view.active { animation: none; }
-    html { scroll-behavior: auto; }
-  }
+footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 40px 24px 48px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+.hero-grid, .about-grid { grid-template-columns: 1fr; gap: 32px; }
+.grid-2, .grid-3 { grid-template-columns: 1fr; }
+.items li { grid-template-columns: 1fr; }
+.items .date { text-align: left; }
+.nav-inner { flex-direction: column; align-items: stretch; padding-top: 10px; padding-bottom: 10px; gap: 6px; }
+.hero-photo { max-width: 280px; }
+.about-photo { max-width: 260px; }
+}
+@media (prefers-reduced-motion: reduce) {
+.view.active { animation: none; }
+html { scroll-behavior: auto; }
+}
 </style>
+
 </head>
 <body>
 
 <!-- ===================== NAV ===================== -->
+
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="#home">Kayla Lee<span>.</span></a>
@@ -314,6 +332,7 @@
 <main>
 
 <!-- ===================== HOME ===================== -->
+
 <section class="view" id="view-home">
   <div class="container">
     <div class="hero">
@@ -336,65 +355,67 @@
           </div>
         </div>
 
-        <!-- PHOTO 1: upload your photo to the repository as photo.jpg -->
-        <figure class="photo-wrap hero-photo">
-          <div class="photo">
-            KL
-            <img data-srcs="KALEE.JPG,KALEE.jpg,kalee.jpg,KALEE.jpeg,photo.jpg" alt="Portrait of Kayla Lee">
-          </div>
-        </figure>
+    <!-- PHOTO 1: upload your photo to the repository as photo.jpg -->
+    <figure class="photo-wrap hero-photo">
+      <div class="photo">
+        KL
+        <img data-srcs="KALEE.JPG,KALEE.jpg,kalee.jpg,KALEE.jpeg,photo.jpg" alt="Portrait of Kayla Lee">
       </div>
-    </div>
+    </figure>
+  </div>
+</div>
 
-    <div class="grid-3 home-cards">
-      <div class="card">
-        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Amplitude envelope of speech with alternating strong and weak syllables"><line class="ink2" x1="8" y1="65" x2="312" y2="65" stroke-width="1" stroke-dasharray="3 4"/><line class="ink" x1="14.0" y1="55.0" x2="14.0" y2="75.0" stroke-width="4" stroke-linecap="round" opacity="0.45"/><line class="ink" x1="24.6" y1="49.0" x2="24.6" y2="81.0" stroke-width="4" stroke-linecap="round" opacity="0.51"/><line class="ink" x1="35.2" y1="37.0" x2="35.2" y2="93.0" stroke-width="4" stroke-linecap="round" opacity="0.63"/><line class="ink" x1="45.8" y1="13.0" x2="45.8" y2="117.0" stroke-width="4" stroke-linecap="round" opacity="0.88"/><line class="ink" x1="56.4" y1="31.0" x2="56.4" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="67.0" y1="51.0" x2="67.0" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="77.6" y1="56.0" x2="77.6" y2="74.0" stroke-width="4" stroke-linecap="round" opacity="0.44"/><line class="ink" x1="88.2" y1="51.0" x2="88.2" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="98.8" y1="41.0" x2="98.8" y2="89.0" stroke-width="4" stroke-linecap="round" opacity="0.59"/><line class="ink" x1="109.4" y1="19.0" x2="109.4" y2="111.0" stroke-width="4" stroke-linecap="round" opacity="0.82"/><line class="ink" x1="120.0" y1="1.0" x2="120.0" y2="129.0" stroke-width="4" stroke-linecap="round" opacity="1.00"/><line class="ink" x1="130.6" y1="25.0" x2="130.6" y2="105.0" stroke-width="4" stroke-linecap="round" opacity="0.76"/><line class="ink" x1="141.2" y1="49.0" x2="141.2" y2="81.0" stroke-width="4" stroke-linecap="round" opacity="0.51"/><line class="ink" x1="151.8" y1="56.0" x2="151.8" y2="74.0" stroke-width="4" stroke-linecap="round" opacity="0.44"/><line class="ink" x1="162.4" y1="53.0" x2="162.4" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="173.0" y1="43.0" x2="173.0" y2="87.0" stroke-width="4" stroke-linecap="round" opacity="0.57"/><line class="ink" x1="183.6" y1="25.0" x2="183.6" y2="105.0" stroke-width="4" stroke-linecap="round" opacity="0.76"/><line class="ink" x1="194.2" y1="7.0" x2="194.2" y2="123.0" stroke-width="4" stroke-linecap="round" opacity="0.94"/><line class="ink" x1="204.8" y1="31.0" x2="204.8" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="215.4" y1="51.0" x2="215.4" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="226.0" y1="57.0" x2="226.0" y2="73.0" stroke-width="4" stroke-linecap="round" opacity="0.43"/><line class="ink" x1="236.6" y1="53.0" x2="236.6" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="247.2" y1="45.0" x2="247.2" y2="85.0" stroke-width="4" stroke-linecap="round" opacity="0.55"/><line class="ink" x1="257.8" y1="31.0" x2="257.8" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="268.4" y1="15.0" x2="268.4" y2="115.0" stroke-width="4" stroke-linecap="round" opacity="0.86"/><line class="ink" x1="279.0" y1="37.0" x2="279.0" y2="93.0" stroke-width="4" stroke-linecap="round" opacity="0.63"/><line class="ink" x1="289.6" y1="53.0" x2="289.6" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="300.2" y1="57.0" x2="300.2" y2="73.0" stroke-width="4" stroke-linecap="round" opacity="0.43"/><path d="M14.0,51.0 L24.6,45.0 L35.2,33.0 L45.8,9.0 L56.4,27.0 L67.0,47.0 L77.6,52.0 L88.2,47.0 L98.8,37.0 L109.4,15.0 L120.0,-3.0 L130.6,21.0 L141.2,45.0 L151.8,52.0 L162.4,49.0 L173.0,39.0 L183.6,21.0 L194.2,3.0 L204.8,27.0 L215.4,47.0 L226.0,53.0 L236.6,49.0 L247.2,41.0 L257.8,27.0 L268.4,11.0 L279.0,33.0 L289.6,49.0 L300.2,53.0" class="ink2" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-        <h4>Rhythm and prosody</h4>
-        <p>Teaching and measuring English rhythm for syllable timed learners.</p>
-      </div>
-      <div class="card">
-        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Two overlapping vowel categories in formant space"><line class="ink2" x1="26" y1="10" x2="26" y2="116" stroke-width="1.2"/><line class="ink2" x1="26" y1="116" x2="308" y2="116" stroke-width="1.2"/><text x="30" y="20" font-size="9" class="fillM" font-family="Inter,sans-serif">F1</text><text x="292" y="110" font-size="9" class="fillM" font-family="Inter,sans-serif">F2</text><ellipse cx="130" cy="62" rx="62" ry="32" transform="rotate(-18 130 62)" class="fillA" opacity="0.18"/><ellipse cx="185" cy="72" rx="58" ry="30" transform="rotate(-18 185 72)" class="fillD" opacity="0.22"/><circle cx="125.5" cy="71.3" r="2.6" class="fillA"/><circle cx="123.0" cy="59.7" r="2.6" class="fillA"/><circle cx="104.0" cy="67.0" r="2.6" class="fillA"/><circle cx="161.1" cy="58.5" r="2.6" class="fillA"/><circle cx="158.8" cy="56.6" r="2.6" class="fillA"/><circle cx="140.9" cy="61.3" r="2.6" class="fillA"/><circle cx="95.9" cy="84.0" r="2.6" class="fillA"/><circle cx="145.9" cy="64.7" r="2.6" class="fillA"/><circle cx="92.8" cy="54.9" r="2.6" class="fillA"/><circle cx="104.0" cy="63.0" r="2.6" class="fillA"/><circle cx="137.2" cy="59.0" r="2.6" class="fillA"/><circle cx="141.2" cy="48.3" r="2.6" class="fillA"/><circle cx="139.8" cy="64.8" r="2.6" class="fillA"/><circle cx="121.6" cy="87.2" r="2.6" class="fillA"/><circle cx="149.5" cy="73.6" r="2.6" class="fillA"/><circle cx="109.9" cy="56.9" r="2.6" class="fillA"/><circle cx="176.0" cy="73.3" r="2.6" class="fillD"/><circle cx="203.1" cy="70.1" r="2.6" class="fillD"/><circle cx="168.7" cy="62.4" r="2.6" class="fillD"/><circle cx="176.9" cy="92.8" r="2.6" class="fillD"/><circle cx="164.3" cy="82.5" r="2.6" class="fillD"/><circle cx="189.3" cy="49.5" r="2.6" class="fillD"/><circle cx="191.9" cy="89.3" r="2.6" class="fillD"/><circle cx="141.0" cy="82.1" r="2.6" class="fillD"/><circle cx="178.4" cy="61.3" r="2.6" class="fillD"/><circle cx="197.7" cy="67.0" r="2.6" class="fillD"/><circle cx="153.6" cy="93.4" r="2.6" class="fillD"/><circle cx="206.9" cy="79.5" r="2.6" class="fillD"/><circle cx="222.3" cy="65.3" r="2.6" class="fillD"/><circle cx="182.4" cy="53.4" r="2.6" class="fillD"/><circle cx="198.9" cy="58.0" r="2.6" class="fillD"/><circle cx="167.9" cy="58.7" r="2.6" class="fillD"/></svg></div>
-        <h4>Child L2 speech</h4>
-        <p>Phonetic training and speech technology for young EFL learners.</p>
-      </div>
-      <div class="card">
-        <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Two speech bubbles with word frequency bars"><path d="M16 14 h132 a10 10 0 0 1 10 10 v54 a10 10 0 0 1 -10 10 h-86 l-18 16 v-16 h-28 a10 10 0 0 1 -10 -10 v-54 a10 10 0 0 1 10 -10z" class="ink" stroke-width="2"/><rect x="30" y="26" width="104" height="8" rx="4" class="fillA" opacity="1.00"/><rect x="30" y="41" width="76" height="8" rx="4" class="fillA" opacity="0.83"/><rect x="30" y="56" width="92" height="8" rx="4" class="fillA" opacity="0.66"/><rect x="30" y="71" width="52" height="8" rx="4" class="fillA" opacity="0.49"/><path d="M172 40 h122 a10 10 0 0 1 10 10 v50 a10 10 0 0 1 -10 10 h-18 v16 l-18 -16 h-86 a10 10 0 0 1 -10 -10 v-50 a10 10 0 0 1 10 -10z" class="fillD" opacity="0.14"/><path d="M172 40 h122 a10 10 0 0 1 10 10 v50 a10 10 0 0 1 -10 10 h-18 v16 l-18 -16 h-86 a10 10 0 0 1 -10 -10 v-50 a10 10 0 0 1 10 -10z" class="ink2" stroke-width="2"/><rect x="186" y="52" width="70" height="8" rx="4" class="fillD" opacity="1.00"/><rect x="186" y="66" width="100" height="8" rx="4" class="fillD" opacity="0.85"/><rect x="186" y="80" width="48" height="8" rx="4" class="fillD" opacity="0.70"/><rect x="186" y="94" width="82" height="8" rx="4" class="fillD" opacity="0.55"/></svg></div>
-        <h4>How people describe AI</h4>
-        <p>What word choices reveal when adults and children explain conversational AI.</p>
-      </div>
-    </div>
+<div class="grid-3 home-cards">
+  <div class="card">
+    <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Amplitude envelope of speech with alternating strong and weak syllables"><line class="ink2" x1="8" y1="65" x2="312" y2="65" stroke-width="1" stroke-dasharray="3 4"/><line class="ink" x1="14.0" y1="55.0" x2="14.0" y2="75.0" stroke-width="4" stroke-linecap="round" opacity="0.45"/><line class="ink" x1="24.6" y1="49.0" x2="24.6" y2="81.0" stroke-width="4" stroke-linecap="round" opacity="0.51"/><line class="ink" x1="35.2" y1="37.0" x2="35.2" y2="93.0" stroke-width="4" stroke-linecap="round" opacity="0.63"/><line class="ink" x1="45.8" y1="13.0" x2="45.8" y2="117.0" stroke-width="4" stroke-linecap="round" opacity="0.88"/><line class="ink" x1="56.4" y1="31.0" x2="56.4" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="67.0" y1="51.0" x2="67.0" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="77.6" y1="56.0" x2="77.6" y2="74.0" stroke-width="4" stroke-linecap="round" opacity="0.44"/><line class="ink" x1="88.2" y1="51.0" x2="88.2" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="98.8" y1="41.0" x2="98.8" y2="89.0" stroke-width="4" stroke-linecap="round" opacity="0.59"/><line class="ink" x1="109.4" y1="19.0" x2="109.4" y2="111.0" stroke-width="4" stroke-linecap="round" opacity="0.82"/><line class="ink" x1="120.0" y1="1.0" x2="120.0" y2="129.0" stroke-width="4" stroke-linecap="round" opacity="1.00"/><line class="ink" x1="130.6" y1="25.0" x2="130.6" y2="105.0" stroke-width="4" stroke-linecap="round" opacity="0.76"/><line class="ink" x1="141.2" y1="49.0" x2="141.2" y2="81.0" stroke-width="4" stroke-linecap="round" opacity="0.51"/><line class="ink" x1="151.8" y1="56.0" x2="151.8" y2="74.0" stroke-width="4" stroke-linecap="round" opacity="0.44"/><line class="ink" x1="162.4" y1="53.0" x2="162.4" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="173.0" y1="43.0" x2="173.0" y2="87.0" stroke-width="4" stroke-linecap="round" opacity="0.57"/><line class="ink" x1="183.6" y1="25.0" x2="183.6" y2="105.0" stroke-width="4" stroke-linecap="round" opacity="0.76"/><line class="ink" x1="194.2" y1="7.0" x2="194.2" y2="123.0" stroke-width="4" stroke-linecap="round" opacity="0.94"/><line class="ink" x1="204.8" y1="31.0" x2="204.8" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="215.4" y1="51.0" x2="215.4" y2="79.0" stroke-width="4" stroke-linecap="round" opacity="0.49"/><line class="ink" x1="226.0" y1="57.0" x2="226.0" y2="73.0" stroke-width="4" stroke-linecap="round" opacity="0.43"/><line class="ink" x1="236.6" y1="53.0" x2="236.6" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="247.2" y1="45.0" x2="247.2" y2="85.0" stroke-width="4" stroke-linecap="round" opacity="0.55"/><line class="ink" x1="257.8" y1="31.0" x2="257.8" y2="99.0" stroke-width="4" stroke-linecap="round" opacity="0.70"/><line class="ink" x1="268.4" y1="15.0" x2="268.4" y2="115.0" stroke-width="4" stroke-linecap="round" opacity="0.86"/><line class="ink" x1="279.0" y1="37.0" x2="279.0" y2="93.0" stroke-width="4" stroke-linecap="round" opacity="0.63"/><line class="ink" x1="289.6" y1="53.0" x2="289.6" y2="77.0" stroke-width="4" stroke-linecap="round" opacity="0.47"/><line class="ink" x1="300.2" y1="57.0" x2="300.2" y2="73.0" stroke-width="4" stroke-linecap="round" opacity="0.43"/><path d="M14.0,51.0 L24.6,45.0 L35.2,33.0 L45.8,9.0 L56.4,27.0 L67.0,47.0 L77.6,52.0 L88.2,47.0 L98.8,37.0 L109.4,15.0 L120.0,-3.0 L130.6,21.0 L141.2,45.0 L151.8,52.0 L162.4,49.0 L173.0,39.0 L183.6,21.0 L194.2,3.0 L204.8,27.0 L215.4,47.0 L226.0,53.0 L236.6,49.0 L247.2,41.0 L257.8,27.0 L268.4,11.0 L279.0,33.0 L289.6,49.0 L300.2,53.0" class="ink2" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+    <h4>Rhythm and prosody</h4>
+    <p>Teaching and measuring English rhythm for syllable timed learners.</p>
+  </div>
+  <div class="card">
+    <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Two overlapping vowel categories in formant space"><line class="ink2" x1="26" y1="10" x2="26" y2="116" stroke-width="1.2"/><line class="ink2" x1="26" y1="116" x2="308" y2="116" stroke-width="1.2"/><text x="30" y="20" font-size="9" class="fillM" font-family="Inter,sans-serif">F1</text><text x="292" y="110" font-size="9" class="fillM" font-family="Inter,sans-serif">F2</text><ellipse cx="130" cy="62" rx="62" ry="32" transform="rotate(-18 130 62)" class="fillA" opacity="0.18"/><ellipse cx="185" cy="72" rx="58" ry="30" transform="rotate(-18 185 72)" class="fillD" opacity="0.22"/><circle cx="125.5" cy="71.3" r="2.6" class="fillA"/><circle cx="123.0" cy="59.7" r="2.6" class="fillA"/><circle cx="104.0" cy="67.0" r="2.6" class="fillA"/><circle cx="161.1" cy="58.5" r="2.6" class="fillA"/><circle cx="158.8" cy="56.6" r="2.6" class="fillA"/><circle cx="140.9" cy="61.3" r="2.6" class="fillA"/><circle cx="95.9" cy="84.0" r="2.6" class="fillA"/><circle cx="145.9" cy="64.7" r="2.6" class="fillA"/><circle cx="92.8" cy="54.9" r="2.6" class="fillA"/><circle cx="104.0" cy="63.0" r="2.6" class="fillA"/><circle cx="137.2" cy="59.0" r="2.6" class="fillA"/><circle cx="141.2" cy="48.3" r="2.6" class="fillA"/><circle cx="139.8" cy="64.8" r="2.6" class="fillA"/><circle cx="121.6" cy="87.2" r="2.6" class="fillA"/><circle cx="149.5" cy="73.6" r="2.6" class="fillA"/><circle cx="109.9" cy="56.9" r="2.6" class="fillA"/><circle cx="176.0" cy="73.3" r="2.6" class="fillD"/><circle cx="203.1" cy="70.1" r="2.6" class="fillD"/><circle cx="168.7" cy="62.4" r="2.6" class="fillD"/><circle cx="176.9" cy="92.8" r="2.6" class="fillD"/><circle cx="164.3" cy="82.5" r="2.6" class="fillD"/><circle cx="189.3" cy="49.5" r="2.6" class="fillD"/><circle cx="191.9" cy="89.3" r="2.6" class="fillD"/><circle cx="141.0" cy="82.1" r="2.6" class="fillD"/><circle cx="178.4" cy="61.3" r="2.6" class="fillD"/><circle cx="197.7" cy="67.0" r="2.6" class="fillD"/><circle cx="153.6" cy="93.4" r="2.6" class="fillD"/><circle cx="206.9" cy="79.5" r="2.6" class="fillD"/><circle cx="222.3" cy="65.3" r="2.6" class="fillD"/><circle cx="182.4" cy="53.4" r="2.6" class="fillD"/><circle cx="198.9" cy="58.0" r="2.6" class="fillD"/><circle cx="167.9" cy="58.7" r="2.6" class="fillD"/></svg></div>
+    <h4>Child L2 speech</h4>
+    <p>Phonetic training and speech technology for young EFL learners.</p>
+  </div>
+  <div class="card">
+    <div class="art"><svg viewBox="0 0 320 130" role="img" aria-label="Two speech bubbles with word frequency bars"><path d="M16 14 h132 a10 10 0 0 1 10 10 v54 a10 10 0 0 1 -10 10 h-86 l-18 16 v-16 h-28 a10 10 0 0 1 -10 -10 v-54 a10 10 0 0 1 10 -10z" class="ink" stroke-width="2"/><rect x="30" y="26" width="104" height="8" rx="4" class="fillA" opacity="1.00"/><rect x="30" y="41" width="76" height="8" rx="4" class="fillA" opacity="0.83"/><rect x="30" y="56" width="92" height="8" rx="4" class="fillA" opacity="0.66"/><rect x="30" y="71" width="52" height="8" rx="4" class="fillA" opacity="0.49"/><path d="M172 40 h122 a10 10 0 0 1 10 10 v50 a10 10 0 0 1 -10 10 h-18 v16 l-18 -16 h-86 a10 10 0 0 1 -10 -10 v-50 a10 10 0 0 1 10 -10z" class="fillD" opacity="0.14"/><path d="M172 40 h122 a10 10 0 0 1 10 10 v50 a10 10 0 0 1 -10 10 h-18 v16 l-18 -16 h-86 a10 10 0 0 1 -10 -10 v-50 a10 10 0 0 1 10 -10z" class="ink2" stroke-width="2"/><rect x="186" y="52" width="70" height="8" rx="4" class="fillD" opacity="1.00"/><rect x="186" y="66" width="100" height="8" rx="4" class="fillD" opacity="0.85"/><rect x="186" y="80" width="48" height="8" rx="4" class="fillD" opacity="0.70"/><rect x="186" y="94" width="82" height="8" rx="4" class="fillD" opacity="0.55"/></svg></div>
+    <h4>How people describe AI</h4>
+    <p>What word choices reveal when adults and children explain conversational AI.</p>
+  </div>
+</div>
 
-    <div class="feature">
-      <div class="feature-text">
-        <span class="eyebrow">Featured project</span>
-        <h2 class="feature-title">Longitudinal Fricative Perception</h2>
-        <p class="feature-paper">L2 perception and perceptual confusions of English fricatives by Korean elementary EFL learners: A one year longitudinal study</p>
-        <p>
-          Sounds such as /θ/ and /ð/ are hard to hear for many learners of English. This project follows the same
-          elementary school learners across one year to ask which fricatives they confuse, how those confusions change over time,
-          and whether the functional load of a contrast, meaning how much it matters for telling words apart, helps explain them.
-        </p>
-        <div class="chips">
-          <span class="chip">Perception experiments</span>
-          <span class="chip">Multidimensional scaling</span>
-          <span class="chip">Functional load</span>
-          <span class="chip">Mixed effects models</span>
-        </div>
-        <div class="btns" style="margin-top:22px;">
-          <a class="btn primary" href="https://doi.org/10.13064/KSSS.2023.15.3.037" target="_blank" rel="noopener">Related paper (2023)</a>
-          <a class="btn ghost" href="#publications">All publications</a>
-        </div>
-        <p class="feature-note">Poster presented at the 17th PSLLT Conference, Ames, IA, September 2026.</p>
-      </div>
-      <figure class="feature-fig hide-if-missing">
-        <img class="zoomable" data-srcs="poster.JPG,poster.jpg,poster.jpeg,poster.JPEG,poster.png,poster.PNG,Poster.JPG,Poster.jpg,Poster.jpeg,Poster.JPEG,Poster.png,Poster.PNG,POSTER.JPG,POSTER.jpg,POSTER.jpeg,POSTER.JPEG,POSTER.png,POSTER.PNG" alt="Poster on longitudinal perception of English fricatives">
-        <figcaption>Click the poster to enlarge</figcaption>
-      </figure>
+<div class="feature">
+  <div class="feature-text">
+    <span class="eyebrow">Featured project</span>
+    <h2 class="feature-title">Longitudinal Fricative Perception</h2>
+    <p class="feature-paper">L2 perception and perceptual confusions of English fricatives by Korean elementary EFL learners: A one year longitudinal study</p>
+    <p>
+      Sounds such as /θ/ and /ð/ are hard to hear for many learners of English. This project follows the same
+      elementary school learners across one year to ask which fricatives they confuse, how those confusions change over time,
+      and whether the functional load of a contrast, meaning how much it matters for telling words apart, helps explain them.
+    </p>
+    <div class="chips">
+      <span class="chip">Perception experiments</span>
+      <span class="chip">Multidimensional scaling</span>
+      <span class="chip">Functional load</span>
+      <span class="chip">Mixed effects models</span>
     </div>
+    <div class="btns" style="margin-top:22px;">
+      <a class="btn primary" href="https://doi.org/10.13064/KSSS.2023.15.3.037" target="_blank" rel="noopener">Related paper (2023)</a>
+      <a class="btn ghost" href="#publications">All publications</a>
+    </div>
+    <p class="feature-note">Poster presented at the 17th PSLLT Conference, Ames, IA, September 2026.</p>
+  </div>
+  <figure class="feature-fig hide-if-missing">
+    <img class="zoomable" data-srcs="poster.JPG,poster.jpg,poster.jpeg,poster.JPEG,poster.png,poster.PNG,Poster.JPG,Poster.jpg,Poster.jpeg,Poster.JPEG,Poster.png,Poster.PNG,POSTER.JPG,POSTER.jpg,POSTER.jpeg,POSTER.JPEG,POSTER.png,POSTER.PNG" alt="Poster on longitudinal perception of English fricatives">
+    <figcaption>Click the poster to enlarge</figcaption>
+  </figure>
+</div>
+
   </div>
 </section>
 
 <!-- ===================== ABOUT ===================== -->
+
 <section class="view" id="view-about">
   <div class="container">
     <h2 class="page-title">About</h2>
@@ -409,23 +430,24 @@
           Before research, I taught elementary school in South Korea for eight years. I then earned my M.A. and Ph.D. in English Language Education
           at Seoul National University. That classroom experience still shapes my questions about learning and technology.
         </p>
-        <p>I speak Korean, English, and German, and I enjoy building tools for
-  pronunciation research and teaching.</p>
+        <p>I speak Korean, English, and German, and I enjoy building tools for pronunciation research and teaching.</p>
       </div>
 
-      <!-- PHOTO 2 (cat): upload your cat photo to the repository as cat.jpg -->
-      <figure class="photo-wrap about-photo">
-        <div class="photo square">
-          CAT
-          <img data-srcs="CAT.JPG,CAT.jpg,cat.jpg,cat.jpeg,CAT.jpeg" alt="Kayla’s cat">
-        </div>
-        <figcaption>My favorite research assistant</figcaption>
-      </figure>
+  <!-- PHOTO 2 (cat): upload your cat photo to the repository as cat.jpg -->
+  <figure class="photo-wrap about-photo">
+    <div class="photo square">
+      CAT
+      <img data-srcs="CAT.JPG,CAT.jpg,cat.jpg,cat.jpeg,CAT.jpeg" alt="Kayla’s cat">
     </div>
+    <figcaption>My favorite research assistant</figcaption>
+  </figure>
+</div>
+
   </div>
 </section>
 
 <!-- ===================== RESEARCH ===================== -->
+
 <section class="view" id="view-research">
   <div class="container">
     <h2 class="page-title">Research</h2>
@@ -456,106 +478,134 @@
     <div class="card">
       <p>Mobile assisted high variability phonetic training and ASR based articulation practice for EFL children: effects on L2 perception, production, phonological working memory, and learner experience.</p>
     </div>
+
+<h3 class="group">Selected research figures</h3>
+<div class="gallery">
+  <figure class="shot">
+    <img data-srcs="PSLLT2024_Results-of-Bonferroni-Adjusted-Wilcoxon-Signed-Rank-Tests.png" alt="Bonferroni adjusted Wilcoxon signed rank test results from PSLLT 2024 research" loading="lazy">
+    <figcaption>PSLLT 2024 · Bonferroni adjusted Wilcoxon signed rank test results</figcaption>
+  </figure>
+  <figure class="shot">
+    <img data-srcs="PSLLT2024_Target-Consonant-Pairs.png" alt="Target consonant pairs used in PSLLT 2024 research" loading="lazy">
+    <figcaption>PSLLT 2024 · Target consonant pairs</figcaption>
+  </figure>
+  <figure class="shot">
+    <img data-srcs="AsiaTEFL_Effectiveness-of-Phonemic-Awareness-Instruction-by-Subgroups.png" alt="Effectiveness of phonemic awareness instruction by learner subgroup" loading="lazy">
+    <figcaption>AsiaTEFL · Effectiveness of phonemic awareness instruction by subgroup</figcaption>
+  </figure>
+  <figure class="shot">
+    <img data-srcs="Languages_Scatter-plot-for-the-correlation-of-pretest-and-posttest-by-proficiency-groups-Notes.png" alt="Pretest and posttest scores by proficiency group" loading="lazy">
+    <figcaption>Languages · Pretest and posttest scores by proficiency group</figcaption>
+  </figure>
+  <figure class="shot">
+    <img data-srcs="Languages_Scatter-plot-for-correlation-of-L2-perception-and-LC-in-pretest-and-posttest-N-57.png" alt="Correlation of L2 perception and LC at pretest and posttest, N equals 57" loading="lazy">
+    <figcaption>Languages · L2 perception and LC correlation at pretest and posttest (N = 57)</figcaption>
+  </figure>
+</div>
+
   </div>
 </section>
 
 <!-- ===================== PUBLICATIONS ===================== -->
+
 <section class="view" id="view-publications">
   <div class="container">
     <h2 class="page-title">Publications</h2>
     <p class="page-sub">Peer reviewed articles, manuscripts under review, and work in preparation.</p>
 
-    <h3 class="group">Peer reviewed journal articles</h3>
-    <ul class="items">
-      <li>
-        <div>
-          <div class="t"><span class="me">Lee, K.</span>, &amp; Ahn, H. Blended phonetic training with HVPT features for EFL children: Effects on L2 perception and listening comprehension.</div>
-          <div class="m"><em>Languages, 10</em>(6), 122. <a href="https://doi.org/10.3390/languages10060122" target="_blank" rel="noopener">doi.org/10.3390/languages10060122</a> <span class="tag">Scopus</span></div>
-        </div>
-        <div class="date">2025</div>
-      </li>
-      <li>
-        <div>
-          <div class="t"><span class="me">Lee, K.</span>, &amp; Ahn, H. Effects of perception focused high variability phonetic training: Impacts on perception, production, and phonological working memory in elementary EFL learners.</div>
-          <div class="m">In J. M. Levis, M. Duris, S. Sonsaat‑Hegelheimer, &amp; I. Na (Eds.), <em>Proceedings of the 15th Pronunciation in Second Language Learning and Teaching Conference</em> (pp. 1–15). Iowa State University. <a href="https://doi.org/10.31274/psllt.18437" target="_blank" rel="noopener">doi.org/10.31274/psllt.18437</a></div>
-        </div>
-        <div class="date">2025</div>
-      </li>
-      <li>
-        <div>
-          <div class="t"><span class="me">Lee, K.</span> An analysis of EFL learners’ perceptual confusions and phonemic awareness of English fricatives.</div>
-          <div class="m"><em>Phonetics and Speech Sciences, 15</em>(3), 37–44. <a href="https://doi.org/10.13064/KSSS.2023.15.3.037" target="_blank" rel="noopener">doi.org/10.13064/KSSS.2023.15.3.037</a></div>
-        </div>
-        <div class="date">2023</div>
-      </li>
-      <li>
-        <div>
-          <div class="t">Ko, M., &amp; <span class="me">Lee, K.</span> Medical English program evaluation and improvement.</div>
-          <div class="m"><em>English Language Teaching, 35</em>(3), 129–159.</div>
-        </div>
-        <div class="date">2023</div>
-      </li>
-      <li>
-        <div>
-          <div class="t">Ko, M., &amp; <span class="me">Lee, K.</span> University English speaking program evaluation and improvement.</div>
-          <div class="m"><em>Korean Journal of Applied Linguistics, 39</em>(2), 81–112.</div>
-        </div>
-        <div class="date">2023</div>
-      </li>
-      <li>
-        <div>
-          <div class="t">Choe, S., <span class="me">Lee, K.</span> (co first author), &amp; So, Y. The effects of phonemic awareness instructions on L2 listening comprehension: A meta analysis.</div>
-          <div class="m"><em>Journal of Asia TEFL, 17</em>(4), 1294–1309. <a href="https://doi.org/10.18823/asiatefl.2020.17.4.9.1294" target="_blank" rel="noopener">doi.org/10.18823/asiatefl.2020.17.4.9.1294</a> <span class="tag">Scopus</span></div>
-        </div>
-        <div class="date">2020</div>
-      </li>
-    </ul>
+<h3 class="group">Peer reviewed journal articles</h3>
+<ul class="items">
+  <li>
+    <div>
+      <div class="t"><span class="me">Lee, K.</span>, &amp; Ahn, H. Blended phonetic training with HVPT features for EFL children: Effects on L2 perception and listening comprehension.</div>
+      <div class="m"><em>Languages, 10</em>(6), 122. <a href="https://doi.org/10.3390/languages10060122" target="_blank" rel="noopener">doi.org/10.3390/languages10060122</a> <span class="tag">Scopus</span></div>
+    </div>
+    <div class="date">2025</div>
+  </li>
+  <li>
+    <div>
+      <div class="t"><span class="me">Lee, K.</span>, &amp; Ahn, H. Effects of perception focused high variability phonetic training: Impacts on perception, production, and phonological working memory in elementary EFL learners.</div>
+      <div class="m">In J. M. Levis, M. Duris, S. Sonsaat‑Hegelheimer, &amp; I. Na (Eds.), <em>Proceedings of the 15th Pronunciation in Second Language Learning and Teaching Conference</em> (pp. 1–15). Iowa State University. <a href="https://doi.org/10.31274/psllt.18437" target="_blank" rel="noopener">doi.org/10.31274/psllt.18437</a></div>
+    </div>
+    <div class="date">2025</div>
+  </li>
+  <li>
+    <div>
+      <div class="t"><span class="me">Lee, K.</span> An analysis of EFL learners’ perceptual confusions and phonemic awareness of English fricatives.</div>
+      <div class="m"><em>Phonetics and Speech Sciences, 15</em>(3), 37–44. <a href="https://doi.org/10.13064/KSSS.2023.15.3.037" target="_blank" rel="noopener">doi.org/10.13064/KSSS.2023.15.3.037</a></div>
+    </div>
+    <div class="date">2023</div>
+  </li>
+  <li>
+    <div>
+      <div class="t">Ko, M., &amp; <span class="me">Lee, K.</span> Medical English program evaluation and improvement.</div>
+      <div class="m"><em>English Language Teaching, 35</em>(3), 129–159.</div>
+    </div>
+    <div class="date">2023</div>
+  </li>
+  <li>
+    <div>
+      <div class="t">Ko, M., &amp; <span class="me">Lee, K.</span> University English speaking program evaluation and improvement.</div>
+      <div class="m"><em>Korean Journal of Applied Linguistics, 39</em>(2), 81–112.</div>
+    </div>
+    <div class="date">2023</div>
+  </li>
+  <li>
+    <div>
+      <div class="t">Choe, S., <span class="me">Lee, K.</span> (co first author), &amp; So, Y. The effects of phonemic awareness instructions on L2 listening comprehension: A meta analysis.</div>
+      <div class="m"><em>Journal of Asia TEFL, 17</em>(4), 1294–1309. <a href="https://doi.org/10.18823/asiatefl.2020.17.4.9.1294" target="_blank" rel="noopener">doi.org/10.18823/asiatefl.2020.17.4.9.1294</a> <span class="tag">Scopus</span></div>
+    </div>
+    <div class="date">2020</div>
+  </li>
+</ul>
 
-    <h3 class="group">Manuscripts under review</h3>
-    <ul class="items">
-      <li>
-        <div>
-          <div class="t">Tang, Q., Wang, J., &amp; <span class="me">Lee, K.</span> <em>Relational turbulence with a layered partner: Interference, uncertainty, and instability in human–AI companionship.</em></div>
-          <div class="m">Extended abstract submitted to the International Communication Association 2027 Conference.</div>
-        </div>
-        <div class="date">2027</div>
-      </li>
-      <li>
-        <div>
-          <div class="t"><span class="me">Lee, K.</span>, &amp; Ahn, H. <em>Mobile assisted vowel training for Korean EFL children’s perception and production.</em></div>
-          <div class="m">Submitted to <em>Language Learning &amp; Technology</em>.</div>
-        </div>
-        <div class="date">2026</div>
-      </li>
-    </ul>
+<h3 class="group">Manuscripts under review</h3>
+<ul class="items">
+  <li>
+    <div>
+      <div class="t">Tang, Q., Wang, J., &amp; <span class="me">Lee, K.</span> <em>Relational turbulence with a layered partner: Interference, uncertainty, and instability in human–AI companionship.</em></div>
+      <div class="m">Extended abstract submitted to the International Communication Association 2027 Conference.</div>
+    </div>
+    <div class="date">2027</div>
+  </li>
+  <li>
+    <div>
+      <div class="t"><span class="me">Lee, K.</span>, &amp; Ahn, H. <em>Mobile assisted vowel training for Korean EFL children’s perception and production.</em></div>
+      <div class="m">Submitted to <em>Language Learning &amp; Technology</em>.</div>
+    </div>
+    <div class="date">2026</div>
+  </li>
+</ul>
 
-    <h3 class="group">Manuscripts in preparation</h3>
-    <ul class="items">
-      <li>
-        <div class="t"><span class="me">Lee, K.</span> <em>Text to speech voice accent mismatch and L2 English learners’ intelligibility, comprehensibility, and accentedness.</em></div>
-        <div class="date">2026</div>
-      </li>
-      <li>
-        <div class="t"><span class="me">Lee, K.</span>, Kim, T., Tang, Q., &amp; Banks, J. <em>How adults and children talk about conversational AI: A discourse analysis of YouTube videos.</em></div>
-        <div class="date">2026</div>
-      </li>
-      <li>
-        <div class="t"><span class="me">Lee, K.</span>, &amp; Hannecart, E. <em>Who counts as a “native speaker” of English? Perceptions of nativeness across bilingual and heritage speaker profiles.</em></div>
-        <div class="date">2026</div>
-      </li>
-      <li>
-        <div class="t"><span class="me">Lee, K.</span>, &amp; Tilsen, S. <em>Envelope based rhythm measures of a prosody training program for Korean elementary EFL learners.</em></div>
-        <div class="date">2026</div>
-      </li>
-      <li>
-        <div class="t"><span class="me">Lee, K.</span>, &amp; Tilsen, S. <em>Perceptual confusions of English fricatives by Korean elementary EFL learners: A one year longitudinal study of functional load.</em></div>
-        <div class="date">2026</div>
-      </li>
-    </ul>
+<h3 class="group">Manuscripts in preparation</h3>
+<ul class="items">
+  <li>
+    <div class="t"><span class="me">Lee, K.</span> <em>Text to speech voice accent mismatch and L2 English learners’ intelligibility, comprehensibility, and accentedness.</em></div>
+    <div class="date">2026</div>
+  </li>
+  <li>
+    <div class="t"><span class="me">Lee, K.</span>, Kim, T., Tang, Q., &amp; Banks, J. <em>How adults and children talk about conversational AI: A discourse analysis of YouTube videos.</em></div>
+    <div class="date">2026</div>
+  </li>
+  <li>
+    <div class="t"><span class="me">Lee, K.</span>, &amp; Hannecart, E. <em>Who counts as a “native speaker” of English? Perceptions of nativeness across bilingual and heritage speaker profiles.</em></div>
+    <div class="date">2026</div>
+  </li>
+  <li>
+    <div class="t"><span class="me">Lee, K.</span>, &amp; Tilsen, S. <em>Envelope based rhythm measures of a prosody training program for Korean elementary EFL learners.</em></div>
+    <div class="date">2026</div>
+  </li>
+  <li>
+    <div class="t"><span class="me">Lee, K.</span>, &amp; Tilsen, S. <em>Perceptual confusions of English fricatives by Korean elementary EFL learners: A one year longitudinal study of functional load.</em></div>
+    <div class="date">2026</div>
+  </li>
+</ul>
+
   </div>
 </section>
 
 <!-- ===================== TALKS ===================== -->
+
 <section class="view" id="view-talks">
   <div class="container">
     <h2 class="page-title">Talks</h2>
@@ -614,19 +664,19 @@
     <h3 class="group">Conference moments</h3>
     <div class="gallery">
       <figure class="shot">
-        <img data-srcs="PSLLT%202024.JPG,PSLLT%202024.jpg,PSLLT%202024.jpeg,PSLLT%202024.JPEG" alt="PSLLT 2024 conference photo 1" loading="lazy">
+        <img data-srcs="PSLLT_2024.jpg" alt="PSLLT 2024 conference photo 1" loading="lazy">
         <figcaption>PSLLT 2024 · Ames, IA</figcaption>
       </figure>
       <figure class="shot">
-        <img data-srcs="PSLLT%2020242.JPG,PSLLT%2020242.jpg,PSLLT%2020242.jpeg,PSLLT%2020242.JPEG" alt="PSLLT 2024 conference photo 2" loading="lazy">
+        <img data-srcs="PSLLT_20242.jpg" alt="PSLLT 2024 conference photo 2" loading="lazy">
         <figcaption>PSLLT 2024 · Ames, IA</figcaption>
       </figure>
       <figure class="shot">
-        <img data-srcs="PSLLT%202025.JPG,PSLLT%202025.jpg,PSLLT%202025.jpeg,PSLLT%202025.JPEG" alt="PSLLT 2025 conference photo 1" loading="lazy">
+        <img data-srcs="PSLLT_2025.jpg" alt="PSLLT 2025 conference photo 1" loading="lazy">
         <figcaption>PSLLT 2025 · Montréal, Canada</figcaption>
       </figure>
       <figure class="shot">
-        <img data-srcs="PSLLT%2020252.JPG,PSLLT%2020252.jpg,PSLLT%2020252.jpeg,PSLLT%2020252.JPEG" alt="PSLLT 2025 conference photo 2" loading="lazy">
+        <img data-srcs="PSLLT_20252.jpg" alt="PSLLT 2025 conference photo 2" loading="lazy">
         <figcaption>PSLLT 2025 · Montréal, Canada</figcaption>
       </figure>
       <figure class="shot">
@@ -642,6 +692,7 @@
 </section>
 
 <!-- ===================== TEACHING ===================== -->
+
 <section class="view" id="view-teaching">
   <div class="container">
     <h2 class="page-title">Teaching</h2>
@@ -680,50 +731,41 @@
 </section>
 
 <!-- ===================== CV ===================== -->
+
 <!-- Upload your CV to the repository as K_Lee_CV_2026Nov_upload.pdf (same name, capital letters included) -->
+
 <section class="view" id="view-cv">
   <div class="container">
     <h2 class="page-title">CV</h2>
     <p class="page-sub">Download my full curriculum vitae.</p>
 
-    <div class="cv-card">
-      <div class="cv-icon" aria-hidden="true">
-        <svg width="44" height="54" viewBox="0 0 44 54" fill="none">
-          <path d="M4 4a4 4 0 0 1 4-4h20l16 16v34a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" fill="currentColor" opacity="0.14"/>
-          <path d="M4 4a4 4 0 0 1 4-4h20l16 16v34a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" stroke="currentColor" stroke-width="2"/>
-          <path d="M28 0v12a4 4 0 0 0 4 4h12" stroke="currentColor" stroke-width="2"/>
-          <line x1="12" y1="28" x2="32" y2="28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-          <line x1="12" y1="35" x2="32" y2="35" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-          <line x1="12" y1="42" x2="24" y2="42" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="cv-body">
-        <h3>KyungA (Kayla) Lee, Curriculum Vitae</h3>
-        <p>PDF · Last updated November 2026</p>
-        <div class="btns">
-          <a
-  class="btn primary"
-  href="K_Lee_CV_2026Nov_upload.pdf"
-  download
->
-  Download CV (PDF)
-</a>
-
-<a
-  class="btn ghost"
-  href="K_Lee_CV_2026Nov_upload.pdf"
-  target="_blank"
-  rel="noopener"
->
-  View in browser
-</a>        </div>
-        <p id="cv-note" style="display:none; margin: 16px 0 0; font-size: 0.9rem;">The CV file could not be found right now. Please email me and I will send it.</p>
-      </div>
+<div class="cv-card">
+  <div class="cv-icon" aria-hidden="true">
+    <svg width="44" height="54" viewBox="0 0 44 54" fill="none">
+      <path d="M4 4a4 4 0 0 1 4-4h20l16 16v34a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" fill="currentColor" opacity="0.14"/>
+      <path d="M4 4a4 4 0 0 1 4-4h20l16 16v34a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" stroke="currentColor" stroke-width="2"/>
+      <path d="M28 0v12a4 4 0 0 0 4 4h12" stroke="currentColor" stroke-width="2"/>
+      <line x1="12" y1="28" x2="32" y2="28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      <line x1="12" y1="35" x2="32" y2="35" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      <line x1="12" y1="42" x2="24" y2="42" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="cv-body">
+    <h3>KyungA (Kayla) Lee, Curriculum Vitae</h3>
+    <p>PDF · Last updated November 2026</p>
+    <div class="btns">
+      <a class="btn primary" id="cv-download" href="K_Lee_CV_2026Nov_upload.pdf" download>Download CV (PDF)</a>
+      <a class="btn ghost" id="cv-view" href="K_Lee_CV_2026Nov_upload.pdf" target="_blank" rel="noopener">View in browser</a>
     </div>
+    <p id="cv-note" style="display:none; margin: 16px 0 0; font-size: 0.9rem;">The CV file could not be found right now. Please email me and I will send it.</p>
+  </div>
+</div>
+
   </div>
 </section>
 
 <!-- ===================== CONTACT ===================== -->
+
 <section class="view" id="view-contact">
   <div class="container">
     <h2 class="page-title">Contact</h2>
@@ -789,8 +831,7 @@
   (function () {
     var candidates = [
       "K_Lee_CV_2026Nov_upload.pdf",
-      "K_Lee_CV_2026Nov_upload.PDF",
-      "K_Lee_CV_2026Nov_upload.docx"
+      "K_Lee_CV_2026Nov_upload.PDF"
     ];
     var dl = document.getElementById("cv-download");
     var view = document.getElementById("cv-view");
@@ -853,5 +894,6 @@
     show();
   })();
 </script>
+
 </body>
 </html>
